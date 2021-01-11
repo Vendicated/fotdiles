@@ -1,0 +1,10 @@
+{
+    ".gitconfig": "/home/ven/.gitconfig",
+    ".gitignore_global": "/home/ven/.gitignore_global",
+    ".p10k.zsh": "/home/ven/.p10k.zsh",
+    ".zshrc": "/home/ven/.zshrc",
+    "Scripts": "/home/ven/Scripts",
+    "aliases.zsh": "/home/ven/.oh-my-zsh/custom/aliases.zsh",
+    "coc-settings.json": "/home/ven/.config/nvim/coc-settings.json",
+    "init.vim": "/home/ven/.config/nvim/init.vim"
+}

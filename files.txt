@@ -1,0 +1,8 @@
+/home/ven/.gitconfig
+/home/ven/.gitignore_global
+/home/ven/.p10k.zsh
+/home/ven/.zshrc
+/home/ven/.oh-my-zsh/custom/aliases.zsh
+/home/ven/Scripts
+/home/ven/.config/nvim/init.vim
+/home/ven/.config/nvim/coc-settings.json

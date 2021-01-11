@@ -1,0 +1,16 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "css"
+  ],
+  "coc.preferences.formatOnType": true,
+  "rpc.enabled": false,
+  "cSpell.userWords": [
+    "nvim"
+  ]
+}

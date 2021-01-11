@@ -1,0 +1,7 @@
+[user]
+   email = sgtmattis@gmail.com
+   name = Venny
+[pull]
+   rebase = false
+[core]
+   excludefile = ~/.gitignore_global
