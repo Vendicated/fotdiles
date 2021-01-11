@@ -1,4 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+if [[ $(id -u) -ne 0 ]] ; then echo "Please run this script as root" ; exit 1 ; fi
+
 
 # NodeJs 15.x
 echo "Setting up NodeJs 15.x"
