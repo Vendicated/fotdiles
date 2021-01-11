@@ -3,7 +3,7 @@ from shutil import copy2, copytree, rmtree
 from pathlib import Path
 
 
-outdir = Path("files")
+outdir = Path("dotfiles")
 outdir.mkdir(exist_ok=True)
 data = {}
 

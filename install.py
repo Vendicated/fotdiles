@@ -10,7 +10,7 @@ if os.geteuid() != 0:
     import sys
     sys.exit(0)
 
-filedir = Path("files")
+filedir = Path("dotfiles")
 
 if not filedir.exists():
     print("directory files does not exist, so there is nothing to install.")
