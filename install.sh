@@ -14,6 +14,10 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.lis
 
 packages="zsh yarn neovim python3 python python3-pip jq youtube-dl ffmpeg build-essential"
 
+
+echo "Updating apt"
+apt-get update > /dev/null
+
 echo "Installing $packages"
 DEBIAN_FRONTEND=noninteractive apt-get -qq install $packages > /dev/null && echo "All done!" || exit 1
 
