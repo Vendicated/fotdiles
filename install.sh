@@ -14,30 +14,30 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.lis
 
 packages="zsh yarn neovim python3 python python3-pip jq youtube-dl ffmpeg build-essential"
 
-
 echo "Updating apt"
 apt-get update > /dev/null
 
 echo "Installing $packages"
-DEBIAN_FRONTEND=noninteractive apt-get -qq install $packages > /dev/null && echo "All done!" || exit 1
+DEBIAN_FRONTEND=noninteractive apt-get -qq install $packages > /dev/null  || { echo "Failed to install. Exiting..."; exit 1; }
 
 echo "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" > /dev/null
 
 echo "Installing Powerlevel10k"
-echo "Remember to install the Powerlevel10k fonts: https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k > /dev/null
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k --quiet 2>/dev/null || echo "Skipped - Already installed."
 
 echo "Installing zsh-syntax-highlighting and zsh-autosuggestions plugin"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting > /dev/null
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions > /dev/null
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting --quiet 2>/dev/null || echo "Skipped zsh-syntax-highlighting - Already installed."
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions --quiet 2>/dev/null || echo "Skipped zsh-autosuggestions - Already installed."
 
 echo "Installing owo.sh"
-git clone https://owo.codes/whats-this/owo.sh.git owo.sh > /dev/null
+git clone https://owo.codes/whats-this/owo.sh.git owo.sh --quiet
 cd owo.sh
-git checkout 1.0.0 > /dev/null
+git checkout 1.0.0 --quiet
 make install > /dev/null
 cd ..
 rm -rf owo.sh
 
 echo "All done!"
+echo "Remember to install the Powerlevel10k fonts: https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k"
+
