@@ -29,3 +29,5 @@ WINDOWS=/mnt/c/Users/Ven
 # [[ $PWD = $WINDOWS ]] && cd ~
 
 export PATH="$HOME/.local/bin:$PATH"
+
+set -o vi

@@ -34,11 +34,11 @@ let g:coc_global_extensions = [
 \ ]
 
 Plug 'sheerun/vim-polyglot'
-Plug 'xabikos/vscode-react'	  	
+" Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
 " UTILS
 
-Plug '907th/vim-auto-save' 	  " Auto save files
+" Plug '907th/vim-auto-save' 	  " Auto save files
 Plug 'preservim/nerdtree'  	  " File Explorer
 Plug 'kien/ctrlp.vim'             " File Finder
 
@@ -61,30 +61,32 @@ if (empty($TMUX))
 endif
 
 syntax on
+
 colorscheme onedark
+" Make vim transparent
+hi Normal guibg=NONE ctermbg=NONE 
 
-" Start NERDTree and put the cursor back in the other window if file opened
-autocmd VimEnter * NERDTree | if argc() != 0 | wincmd p | endif
-
+" Set leader to ,
+let mapleader = ","
 
 " Exit Vim if NERDTree is the only window left.
- autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif 
 
 " Enable Auto Save
-let g:auto_save = 1
+" let g:auto_save = 1
 
 " Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" set filetypes as typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 "  Enable folding
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za 
 
+
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Tabs
 au BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx set
@@ -93,7 +95,7 @@ au BufNewFile,BufRead *.js,*.jsx,*.ts,*.tsx set
     \ softtabstop=4
     \ expandtab
 
-au BufNewFile,BufRead *.p set 
+au BufNewFile,BufRead *.py set 
     \ tabstop=4
     \ softtabstop=4
     \ shiftwidth=4
@@ -124,3 +126,23 @@ nmap <silent> gr <Plug>(coc-references)
 " CocSpellCheck
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
+
+" NERDTree trigger
+nnoremap <silent> <leader>nt :NERDTree<CR> <C-W><C-w>
+
+" Shortcuts to reload and edit this file
+nnoremap <silent> <leader><leader> :source $MYVIMRC<CR>
+nnoremap <silent> <leader>e :e $MYVIMRC<CR>
+
+" Function to prompt for filename and then open it in new tab 
+function! OpenNewTab()
+  call inputsave()
+  let filename = input("File name: ")
+  call inputrestore()
+  execute 'tabnew' filename
+endfunction
+
+" Shortcuts to open new tabs and switch tabs
+nnoremap <silent> <C-n> :call OpenNewTab()<CR>
+nnoremap <silent> <C-Right> :tabnext<CR>
+nnoremap <silent> <C-Left> :tabprevious<CR>
