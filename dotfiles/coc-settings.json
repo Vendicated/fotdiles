@@ -11,7 +11,11 @@
   "coc.preferences.formatOnType": true,
   "rpc.enabled": false,
   "cSpell.userWords": [
+    "Ven's",
+    "dotfiles",
+    "filemap",
     "getenv",
+    "lmao",
     "nvim",
     "vendicated"
   ]
