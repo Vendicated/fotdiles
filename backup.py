@@ -10,10 +10,7 @@ def backup_file(file: Path, outdir: Path):
         outdir /= file.name
         outdir.mkdir(exist_ok=True, parents=True)
         for child in file.iterdir():
-            if child.is_dir():
-                backup_file(child, outdir)
-            else:
-                backup_file(child, outdir)
+            backup_file(child, outdir)
     else:
             shutil.copy2(file, outdir)
 
