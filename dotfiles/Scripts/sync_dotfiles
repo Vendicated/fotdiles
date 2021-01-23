@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+(cd ~/Projects/dotfiles && python3 backup.py && git commit -am "${*:-"Sync dotfiles"}" && git push)
