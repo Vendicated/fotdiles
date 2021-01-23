@@ -132,7 +132,7 @@ nnoremap <silent> <leader>nt :NERDTree<CR> <C-W><C-w>
 
 " Shortcuts to reload and edit this file
 nnoremap <silent> <leader><leader> :source $MYVIMRC<CR>
-nnoremap <silent> <leader>e :e $MYVIMRC<CR>
+nnoremap <silent> <leader>e :tabnew $MYVIMRC<CR>
 
 " Function to prompt for filename and then open it in new tab 
 function! OpenNewTab()
