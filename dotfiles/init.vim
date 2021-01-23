@@ -137,7 +137,7 @@ nnoremap <silent> <leader>e :tabnew $MYVIMRC<CR>
 " Function to prompt for filename and then open it in new tab 
 function! OpenNewTab()
   call inputsave()
-  let filename = input("File name: ")
+  let filename = input("File name: ", "", "file")
   call inputrestore()
   execute 'tabnew' filename
 endfunction
