@@ -19,12 +19,10 @@ def restore_file(file: Path, outfile: Path, data):
         outfile.parent.chmod(int(data["parentPerms"], 8))
     if file.is_dir():
         outfile.mkdir(exist_ok=True, parents=True)
-        print(f"iterating dir {file} with outdir {outfile}")
         for child in file.iterdir():
             if child.is_dir():
                 restore_file(child, outfile / child.name, data)
             else:
-                print(f"Found child file {child} with outdir {outfile}")
                 restore_file(child, outfile, data)
     else:
         shutil.copy2(file, outfile)
