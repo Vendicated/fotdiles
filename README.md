@@ -1,6 +1,6 @@
 ## Ven's dotfiles
 
-These are my dotfiles. Not sure why you're here but have fun ig lmao
+These are my wsl Ubuntu dotfiles. Not sure why you're here but have fun ig lmao
 
 ### Usage
 
