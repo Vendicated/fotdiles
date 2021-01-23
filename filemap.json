@@ -1,10 +1,74 @@
 {
-    ".gitconfig": "/home/ven/.gitconfig",
-    ".gitignore_global": "/home/ven/.gitignore_global",
-    ".p10k.zsh": "/home/ven/.p10k.zsh",
-    ".zshrc": "/home/ven/.zshrc",
-    "Scripts": "/home/ven/Scripts",
-    "aliases.zsh": "/home/ven/.oh-my-zsh/custom/aliases.zsh",
-    "coc-settings.json": "/home/ven/.config/nvim/coc-settings.json",
-    "init.vim": "/home/ven/.config/nvim/init.vim"
+    ".gitconfig": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.gitconfig",
+        "perms": "0o100644"
+    },
+    ".gitignore_global": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.gitignore_global",
+        "perms": "0o100644"
+    },
+    ".p10k.zsh": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.p10k.zsh",
+        "perms": "0o100755"
+    },
+    ".zshrc": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.zshrc",
+        "perms": "0o100644"
+    },
+    "Scripts": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/Scripts",
+        "perms": "0o40755"
+    },
+    "aliases.zsh": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.oh-my-zsh/custom/aliases.zsh",
+        "perms": "0o100644"
+    },
+    "coc-settings.json": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.config/nvim/coc-settings.json",
+        "perms": "0o100644"
+    },
+    "init.vim": {
+        "group": "ven",
+        "owner": "ven",
+        "parentGroup": "ven",
+        "parentOwner": "ven",
+        "parentPerms": "0o40755",
+        "path": "/home/ven/.config/nvim/init.vim",
+        "perms": "0o100644"
+    }
 }

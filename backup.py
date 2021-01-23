@@ -1,25 +1,44 @@
 import json
-from shutil import copy2, copytree, rmtree
+import os
+import shutil
 from pathlib import Path
 
-
-outdir = Path("dotfiles")
-outdir.mkdir(exist_ok=True)
 data = {}
 
+def backup_file(file: Path, outdir: Path):
+    if file.is_dir():
+        outdir /= file.name
+        outdir.mkdir(exist_ok=True, parents=True)
+        for child in file.iterdir():
+            if child.is_dir():
+                backup_file(child, outdir)
+            else:
+                backup_file(child, outdir)
+    else:
+            shutil.copy2(file, outdir)
+
+def get_perms_oct(path):
+    return os.stat(path).st_mode
+
 with open("files.txt") as f:
-    for file in f.readlines(): 
+    outdir = Path("dotfiles")
+    outdir.mkdir(exist_ok=True)
+
+    for file in f.readlines():
         file = file.strip()
-        from_file = Path(file).expanduser()
-        if from_file.is_dir():
-            final_outdir = outdir / from_file.name
-            if final_outdir.exists():
-                rmtree(final_outdir)
-            copytree(from_file, final_outdir)
-        else:
-            copy2(from_file, outdir)
+        from_file = Path(file)
+        backup_file(from_file, outdir)
         print(f"Backed up {from_file}")
-        data[from_file.name] = file
+
+        data[from_file.name] = { 
+            "path": file,
+            "owner": from_file.owner(), 
+            "group": from_file.group(),
+            "perms": oct(get_perms_oct(from_file)), 
+            "parentOwner": from_file.parent.owner(),
+            "parentGroup": from_file.parent.group(),
+            "parentPerms": oct(get_perms_oct(from_file.parent))
+        }
 
 with open("filemap.json", "w") as f:
     json.dump(data, f, sort_keys=True, indent=4)
