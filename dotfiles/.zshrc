@@ -6,7 +6,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd/mm/yyyy"
 DISABLE_UPDATE_PROMPT="true"
 
-export ZSH="/home/ven/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export WINDOWS=/mnt/c/Users/Ven
 export PATH="$HOME/.local/bin:$HOME/Scripts:$PATH"
 export EDITOR=vim
