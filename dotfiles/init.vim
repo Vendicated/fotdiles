@@ -33,6 +33,8 @@ let g:coc_global_extensions = [
 	\ 'coc-yaml',
 \ ]
 
+Plug 'metakirby5/codi.vim' " Live scratchpad
+
 Plug 'sheerun/vim-polyglot'
 " Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 
@@ -40,6 +42,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Plug '907th/vim-auto-save' 	  " Auto save files
 Plug 'preservim/nerdtree'  	  " File Explorer
+Plug 'liuchengxu/vim-which-key' 
 Plug 'kien/ctrlp.vim'             " File Finder
 
 call plug#end()
@@ -61,6 +64,7 @@ if (empty($TMUX))
 endif
 
 syntax on
+set number
 
 colorscheme onedark
 " Make vim transparent
@@ -68,6 +72,8 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " Set leader to ,
 let mapleader = ","
+
+let g:python3_host_prog="/usr/bin/python3"
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -127,9 +133,6 @@ nmap <silent> gr <Plug>(coc-references)
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 
-" NERDTree trigger
-nnoremap <silent> <leader>nt :NERDTree<CR> <C-W><C-w>
-
 " Shortcuts to reload and edit this file
 nnoremap <silent> <leader><leader> :source $MYVIMRC<CR>
 nnoremap <silent> <leader>e :tabnew $MYVIMRC<CR>
@@ -146,3 +149,35 @@ endfunction
 nnoremap <silent> <C-n> :call OpenNewTab()<CR>
 nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
+nnoremap <silent> <C-Q> :tabclose<CR>
+
+" NERDTree trigger
+nnoremap <silent> <C-F> :NERDTree<CR> <C-W><C-w> 
+
+function! ToggleComment(str)
+  let selection = @*
+endfunction
+
+function! ToggleComment(str) range
+python3 << EOF
+import vim
+content = vim.eval("getline(a:firstline)")
+str = vim.eval("a:str")
+escaped_str = str.replace("/", "\\/")
+if content.startswith(str):
+    vim.command(f"'<,'>s/^{escaped_str}/")
+else:
+    vim.command(f"'<,'>s/^/{escaped_str}")
+EOF
+endfunction
+
+vnoremap <silent> <C-h> :call ToggleComment("# ")<CR>
+vnoremap <silent> <C-q> :call ToggleComment('" ')<CR>
+vnoremap <silent> <C-s> :call ToggleComment("\/\/ ")<CR>
+
+" https://stackoverflow.com/a/2585673
+function! CopyToClipBoard() range 
+  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| clip.exe')
+endfunction
+
+noremap <silent> <C-c> :call CopyToClipBoard()<CR> 

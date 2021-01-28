@@ -5,6 +5,8 @@ import requests
 import sys
 import json
 
+HASTE_MIRROR = "https://hb.wrmsr.io"
+
 def print_help(command_name: str):
     print(f"Usage: {command_name} <text>")
     sys.exit(0)
@@ -21,9 +23,9 @@ def main(argv: List[str]):
         print_help(command_name)
     
     try:
-        res = requests.post("https://hastebin.com/documents", text)
+        res = requests.post(f"{HASTE_MIRROR}/documents", text)
         key = json.loads(res.content)["key"]
-        print(f"https://hastebin.com/{key}")
+        print(f"{HASTE_MIRROR}/{key}")
     except:
         print("Something went wrong while fetching hastebin.")
 
