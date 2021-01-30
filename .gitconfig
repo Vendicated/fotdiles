@@ -1,0 +1,10 @@
+[user]
+   email = sgtmattis@gmail.com
+   name = Vendicated 
+[pull]
+   rebase = false
+[core]
+   excludesfile = /home/ven/.config/git/gitignore_global
+   editor = nvim
+[init]
+   defaultBranch = master
