@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+from typing import List
+import requests
+import sys
+import json
+
+HASTE_MIRROR = "https://hb.wrmsr.io"
+
+def print_help(command_name: str):
+    print(f"Usage: {command_name} <text>")
+    sys.exit(0)
+
+def main(argv: List[str]):
+    command_name = argv.pop(0)
+    text = None
+
+    if len(argv):
+        text = " ".join(argv)
+    elif not sys.stdin.isatty():
+        text = sys.stdin.read()
+    else:
+        print_help(command_name)
+    
+    try:
+        res = requests.post(f"{HASTE_MIRROR}/documents", text)
+        key = json.loads(res.content)["key"]
+        print(f"{HASTE_MIRROR}/{key}")
+    except:
+        print("Something went wrong while fetching hastebin.")
+
+
+if __name__ == "__main__":
+    try:
+        main(sys.argv)
+    except KeyboardInterrupt:
+        print("Exiting...")
+        sys.exit(130)
+    

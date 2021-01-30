@@ -1,0 +1,23 @@
+!! Transparency
+*.alpha: 0.8
+
+/* One Dark Pro */
+*.cursorColor: #68f900
+*.background: #242320
+*.foreground: #cdc6b2
+*.color0: #242320
+*.color1: #cf0000
+*.color2: #4aa609
+*.color3: #c37f00
+*.color4: #0070cb
+*.color5: #9100bc
+*.color6: #0093a5
+*.color7: #cdc6b2
+*.color8: #53514c
+*.color9: #ff0000
+*.color10: #70f90d
+*.color11: #ffa600
+*.color12: #008cff
+*.color13: #c500ff
+*.color14: #00dcf7
+*.color15: #fff7e2

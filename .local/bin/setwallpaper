@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+
+wallpaper=$HOME/.local/share/wallpaper
+
+
+xwallpaper --zoom "$wallpaper"

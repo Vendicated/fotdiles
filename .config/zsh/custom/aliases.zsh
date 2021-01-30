@@ -1,0 +1,5 @@
+alias vimdiff="nvim -d"
+alias vim="nvim"
+alias vi="nvim"
+alias lolcat="lolcat --truecolor"
+alias neofetch="neofetch | lolcat"

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+xrdb $HOME/.config/X11/Xresources &
+xcompmgr &
+unclutter &
+volumeicon &
+./XKeybinds &
+setwallpaper
