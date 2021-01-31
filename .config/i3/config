@@ -15,7 +15,7 @@
 # Win Key
 set $mod Mod4 
 
-font pango:Noto sans 8
+font pango:Times New Roman 12
 
 bindsym $mod+shift+b exec --no-startup-id $BROWSER
 bindsym $mod+shift+d exec --no-startup-id discord
@@ -36,9 +36,11 @@ gaps inner 6
 # Auto lock
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 
-# NetworkManager-applet and dunst notification service
+# NetworkManager & blueooth applet 
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 
+# Dunst notification service
 exec --no-startup-id dunst
 
 ################################
