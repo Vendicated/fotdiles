@@ -24,6 +24,8 @@ bindsym $mod+shift+s exec --no-startup-id spotify
 bindsym Print exec flameshot gui
 bindsym shift+Print exec "flameshot gui -r > /tmp/owoscreenshot.png && owo /tmp/owoscreenshot.png && rm -f /tmp/owoscreenshot"
 
+bindsym $mod+shift+v exec sudo togglevpn
+
 bindsym $mod+Delete exec loginctl lock-session
 
 # Disable Window titles
@@ -153,7 +155,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec exit
+bindsym $mod+Shift+e exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

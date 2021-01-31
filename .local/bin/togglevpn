@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+notify="sudo -u ven \
+		DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
+		notify-send -a ProtonVPN -i /home/ven/.local/share/icons/protonvpn.png -t 4000"
+
+if [[ "$(protonvpn status)" =~ "Connected" ]]; then
+	protonvpn disconnect > /dev/null &&
+		$notify -u critical "ProtonVPN" "Disabled VPN"
+else
+	protonvpn connect --fastest > /dev/null &&
+		$notify -u normal "ProtonVPN" "Enabled VPN"
+fi
