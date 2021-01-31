@@ -24,7 +24,7 @@ bindsym $mod+shift+s exec --no-startup-id spotify
 bindsym Print exec flameshot gui
 bindsym shift+Print exec "flameshot gui -r > /tmp/owoscreenshot.png && owo /tmp/owoscreenshot.png && rm -f /tmp/owoscreenshot"
 
-bindsym $mod+shift+v exec sudo togglevpn
+bindsym $mod+shift+v exec togglevpn
 
 bindsym $mod+Delete exec loginctl lock-session
 
