@@ -23,7 +23,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    geometry = "400x5-40-40"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -37,9 +37,7 @@
     separator_height = 2
     padding = 8
     horizontal_padding = 8
-    frame_width = 3
-
-    frame_color = "#282828"
+    frame_width = 1
 
     # Define a color for the separator.
     # possible values are:
@@ -47,7 +45,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
 
     # Sort messages by urgency.
     sort = yes
@@ -61,7 +59,7 @@
 
     ### Text ###
 
-    font = Noto sans 8
+    font = Noto sans 11
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -142,7 +140,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/ven/.local/share/icons
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:~/.local/share/icons
 
     ### History ###
 
@@ -261,6 +259,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#282828"
     foreground = "#928374"
+    frame_color = "#282828"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -268,6 +267,7 @@
 [urgency_normal]
     background = "#458588"
     foreground = "#ebdbb2"
+    frame_color = "#458588"
     timeout = 3
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
@@ -275,7 +275,7 @@
 [urgency_critical]
     background = "#cc2421"
     foreground = "#ebdbb2"
-    # frame_color = "#fabd2f"
+    frame_color = "#cc2421"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon

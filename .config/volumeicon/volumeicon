@@ -1,5 +1,6 @@
 [Alsa]
 card=default
+channel=Master
 
 [Notification]
 show_notification=true
@@ -11,15 +12,15 @@ onclick=xterm -e 'alsamixer'
 theme=White Gnome
 use_panel_specific_icons=false
 lmb_slider=true
-mmb_mute=false
+mmb_mute=true
 use_horizontal_slider=false
-show_sound_level=false
+show_sound_level=true
 use_transparent_background=true
 
 [Hotkeys]
 up_enabled=false
 down_enabled=false
 mute_enabled=false
-up=XF86AudioRaiseVolume
-down=XF86AudioLowerVolume
-mute=XF86AudioMute
+up=AudioRaiseVolume
+down=AudioLowerVolume
+mute=AudioMute

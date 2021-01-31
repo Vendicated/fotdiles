@@ -3,5 +3,6 @@ alias vim="nvim"
 alias vi="nvim"
 alias lolcat="lolcat --truecolor"
 alias neofetch="neofetch | lolcat"
+alias shutdown="shutdown now"
 
 sxivremote() { curl -sS "${1:?Please specify an url}" -o /tmp/sxivremote && sxiv /tmp/sxivremote && rm -f /tmp/sxivremote }

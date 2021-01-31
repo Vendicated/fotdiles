@@ -12,7 +12,8 @@ export ZSH_CUSTOM=$HOME/.config/zsh/custom
 export PATH=$HOME/.local/bin:$PATH
 export EDITOR=nvim
 export TERMINAL=st
-export BROWSER=firefox
+# export BROWSER=firefox
+export BROWSER=librewolf
 
 plugins=(
   git
