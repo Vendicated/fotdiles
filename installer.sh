@@ -7,7 +7,7 @@ die() {
 
 sync_dotfiles() {
 	for item in $(ls .config); do
-		cp -r ~.config/"$item" ".config/$item"
+		cp -r ~/.config/"$item" ".config/$item"
 	done
 
 	git commit -am "Update dotfiles"
