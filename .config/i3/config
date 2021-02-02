@@ -20,11 +20,13 @@ font pango:Times New Roman 12
 bindsym $mod+shift+b exec --no-startup-id $BROWSER
 bindsym $mod+shift+d exec --no-startup-id discord
 bindsym $mod+shift+s exec --no-startup-id spotify
+bindsym $mod+shift+f exec --no-startup-id nemo
 
 bindsym Print exec flameshot gui
 bindsym shift+Print exec "flameshot gui -r > /tmp/owoscreenshot.png && owo /tmp/owoscreenshot.png && rm -f /tmp/owoscreenshot"
 
 bindsym $mod+shift+v exec togglevpn
+bindsym $mod+shift+t exec toggleXcompmgr
 
 bindsym $mod+Delete exec loginctl lock-session
 

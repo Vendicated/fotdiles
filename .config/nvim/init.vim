@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Coc
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 let g:coc_global_extensions = [
+    \ 'coc-discord-rpc',
 	\ 'coc-eslint',
 	\ 'coc-git',
 	\ 'coc-json',
@@ -35,7 +36,6 @@ Plug 'sheerun/vim-polyglot'
 
 " Plug '907th/vim-auto-save' 	  " Auto save files
 Plug 'preservim/nerdtree'  	  " File Explorer
-Plug 'liuchengxu/vim-which-key' 
 Plug 'kien/ctrlp.vim'             " File Finder
 
 call plug#end()

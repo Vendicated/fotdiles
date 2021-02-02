@@ -9,7 +9,6 @@
     "css"
   ],
   "coc.preferences.formatOnType": true,
-  "rpc.enabled": false,
   "cSpell.userWords": [
     "Ven's",
     "dotfiles",
@@ -18,5 +17,14 @@
     "lmao",
     "nvim",
     "vendicated"
-  ]
+  ],
+  "rpc.enabled": true,
+  "rpc.lowerDetailsEditing": "{workspace}",
+  "rpc.lowerDetailsViewing": "{workspace}",
+  "rpc.detailsViewing": "Viewing {filename}",
+  "rpc.detailsEditing": "Editing {filename}",
+  "rpc.lowerDetailsNotFound": "No workspace",
+  "rpc.workspaceText": "In workspace {workspace}",
+  "rpc.problemsText": "{count} problems found",
+  "rpc.workspaceElapsedTime": true
 }
