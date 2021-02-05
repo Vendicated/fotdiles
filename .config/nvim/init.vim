@@ -171,7 +171,8 @@ vnoremap <silent> <C-s> :call ToggleComment("\/\/ ")<CR>
 
 " https://stackoverflow.com/a/2585673
 function! CopyToClipBoard() range 
-  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).'| clip.exe')
+  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | xclip -selection clipboard')
 endfunction
 
 noremap <silent> <C-c> :call CopyToClipBoard()<CR> 
+noremap <silent> <C-v> :r !xclip -o -selection clipboard<CR>
