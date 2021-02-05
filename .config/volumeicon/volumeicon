@@ -8,14 +8,14 @@ notification_type=1
 
 [StatusIcon]
 stepsize=5
-onclick=xterm -e 'alsamixer'
-theme=White Gnome
+onclick=st alsamixer
+theme=Default
 use_panel_specific_icons=false
 lmb_slider=true
 mmb_mute=true
-use_horizontal_slider=false
+use_horizontal_slider=true
 show_sound_level=true
-use_transparent_background=true
+use_transparent_background=false
 
 [Hotkeys]
 up_enabled=false

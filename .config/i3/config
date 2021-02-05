@@ -12,28 +12,12 @@
 #             OWN              #
 ################################
 
-# Win Key
-set $mod Mod4 
+workspace 1 output HDMI-1
+workspace 10 output eDP-1
 
-font pango:Times New Roman 12
-
-bindsym $mod+shift+b exec --no-startup-id $BROWSER
-bindsym $mod+shift+d exec --no-startup-id discord
-bindsym $mod+shift+s exec --no-startup-id spotify
-bindsym $mod+shift+f exec --no-startup-id nemo
-
-bindsym Print exec flameshot gui
-bindsym shift+Print exec "flameshot gui -r > /tmp/owoscreenshot.png && owo /tmp/owoscreenshot.png && rm -f /tmp/owoscreenshot"
-
-bindsym $mod+shift+v exec togglevpn
-bindsym $mod+shift+t exec toggleXcompmgr
-
-bindsym $mod+Delete exec loginctl lock-session
-
-# Disable Window titles
-for_window [class=".*"] border pixel 0
-
-gaps inner 6
+#
+# Services
+#
 
 # Auto lock
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
@@ -44,6 +28,55 @@ exec --no-startup-id blueman-applet
 
 # Dunst notification service
 exec --no-startup-id dunst
+
+# Alternating split direction
+exec --no-startup-id i3alternate
+
+#
+# Key Binds
+#
+
+# Win Key
+set $mod Mod4 
+
+font pango:Times New Roman 12
+
+# exit i3 (logs you out of your X session)
+bindsym ctrl+Mod1+Delete exit
+bindsym ctrl+Mod1+BackSpace exec shutdown now
+
+# Edit config
+bindsym $mod+Shift+e exec st nvim ~/.config/i3/config
+
+# kill focused window
+bindsym $mod+q kill
+bindsym --whole-window $mod+button2 kill 
+bindsym Mod1+F4 kill
+
+# Move workspaces
+bindsym $mod+ctrl+Left workspace prev
+bindsym $mod+ctrl+Right workspace next
+bindsym --whole-window --border $mod+Button4 workspace prev
+bindsym --whole-window --border $mod+Button5 workspace next
+
+bindsym $mod+shift+b exec $BROWSER
+bindsym $mod+shift+d exec discord
+bindsym $mod+shift+s exec spotify
+bindsym $mod+shift+f exec nemo
+
+bindsym Print exec --no-startup-id flameshot gui
+bindsym shift+Print exec --no-startup-id "flameshot gui -r > /tmp/owoscreenshot.png && owo /tmp/owoscreenshot.png && rm -f /tmp/owoscreenshot"
+
+bindsym $mod+shift+v exec --no-startup-id togglevpn
+bindsym $mod+shift+t exec --no-startup-id toggleXcompmgr
+
+bindsym $mod+Delete exec --no-startup-id loginctl lock-session
+
+# Disable Window titles
+for_window [class=".*"] border pixel 0
+
+gaps inner 6
+
 
 ################################
 #           DEFAULTS           #
@@ -62,8 +95,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
-bindsym $mod+q kill
 
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
@@ -158,8 +189,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
