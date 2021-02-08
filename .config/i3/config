@@ -19,18 +19,16 @@ workspace 10 output eDP-1
 # Services
 #
 
-# Auto lock
+exec --no-startup-id xrdb $HOME/.config/X11/Xresources
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
-
-# NetworkManager & blueooth applet 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-
-# Dunst notification service
+exec --no-startup-id volumeicon
+exec --no-startup-id xcompmgr
 exec --no-startup-id dunst
-
-# Alternating split direction
 exec --no-startup-id i3alternate
+exec --no-startup-id unclutter
+exec --no-startup-id xwallpaper --zoom $HOME/.local/share/wallpaper
 
 #
 # Key Binds
