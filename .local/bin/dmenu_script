@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+
+from pathlib import Path
+import re
+import subprocess
+import json
+
+paths = [ "/usr/share", "~/.local/share"]
+
+json_path = Path("~/.cache/wal/colors.json").expanduser()
+
+colors = None
+if json_path.exists():
+    colors = json.loads(json_path.read_text())["colors"]
+
+desktop_files = {}
+
+exclude_fields = ["NoDisplay", "Hidden"]
+
+def get_field_value(content: str, field: str):
+    match = re.search(f"{field}=([^\n]+)", content)
+
+    return match and match.group(1)
+
+for path in paths:
+    app_dir = (Path(path) / "applications").expanduser()
+    if not app_dir.exists():
+        continue
+    
+    for file in app_dir.glob("*.desktop"):
+        content = file.read_text()
+        if "[Desktop Entry]" not in content or any(x in content for x in
+                                                   exclude_fields):
+            continue
+
+        name = get_field_value(content, "Name")
+        exec = get_field_value(content, "Exec")
+        if name:
+            desktop_files[name] = exec
+
+file_names = list(desktop_files.keys())
+file_names.sort()
+
+command = 'echo -e "' + "\\n".join(file_names) + '" | dmenu -i'
+
+if colors:
+    fg = colors["color0"]
+    bg = colors["color1"]
+    command += f" -nf '{bg}' -nb '{fg}' -sf '{fg}' -sb '{bg}'"
+
+output = subprocess.getoutput(command)
+
+if output not in desktop_files:
+    print("Successfully cancelled!")
+else:
+    subprocess.run(["/usr/bin/i3-msg", "exec", desktop_files[output]])
