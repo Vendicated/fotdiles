@@ -1,5 +1,5 @@
 !! Transparency
-*.alpha: 0.8
+*.alpha: 0.9
 
 /* One Dark Pro */
 *.cursorColor: #68f900
