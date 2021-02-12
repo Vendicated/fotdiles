@@ -22,5 +22,3 @@ fi
 
 exec i3
 
-# Load wal colour scheme and wallpaper
-wal -R

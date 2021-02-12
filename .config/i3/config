@@ -15,7 +15,6 @@ workspace 10 output eDP-1
 #
 
 exec --no-startup-id xrdb $HOME/.config/X11/Xresources
-exec --no-startup-id xrdb $HOME/.cache/wal/colors.Xresources
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
@@ -25,6 +24,7 @@ exec --no-startup-id dunst
 exec --no-startup-id i3alternate
 exec --no-startup-id unclutter
 exec --no-startup-id xwallpaper --zoom $HOME/.local/share/wallpaper
+exec --no-startup-id wal -R
 
 #
 # Key Binds
