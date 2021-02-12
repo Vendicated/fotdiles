@@ -3,24 +3,23 @@
 from pathlib import Path
 import re
 import subprocess
-import json
 
 paths = [ "/usr/share", "~/.local/share"]
-
-json_path = Path("~/.cache/wal/colors.json").expanduser()
+exclude_fields = ["NoDisplay", "Hidden"]
 
 colors = None
+
+json_path = Path("~/.cache/wal/colors.json").expanduser()
 if json_path.exists():
+    import json
     colors = json.loads(json_path.read_text())["colors"]
-
-desktop_files = {}
-
-exclude_fields = ["NoDisplay", "Hidden"]
 
 def get_field_value(content: str, field: str):
     match = re.search(f"{field}=([^\n]+)", content)
 
     return match and match.group(1)
+
+desktop_files = {}
 
 for path in paths:
     app_dir = (Path(path) / "applications").expanduser()
@@ -29,8 +28,8 @@ for path in paths:
     
     for file in app_dir.glob("*.desktop"):
         content = file.read_text()
-        if "[Desktop Entry]" not in content or any(x in content for x in
-                                                   exclude_fields):
+        if "[Desktop Entry]" not in content or any(
+                x in content and get_field_value(content, x) == "true" for x in exclude_fields):
             continue
 
         name = get_field_value(content, "Name")
