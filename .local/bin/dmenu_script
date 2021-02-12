@@ -32,13 +32,12 @@ for path in paths:
                 x in content and get_field_value(content, x) == "true" for x in exclude_fields):
             continue
 
-        name = get_field_value(content, "Name")
-        exec = get_field_value(content, "Exec")
-        if name:
-            desktop_files[name] = exec
+        name = get_field_value(content, "Name") or file.name
+        cmd = get_field_value(content, "Exec")
+        if cmd:
+            desktop_files[name] = cmd
 
-file_names = list(desktop_files.keys())
-file_names.sort()
+file_names = sorted(desktop_files.keys(), key=str.casefold)
 
 command = 'echo -e "' + "\\n".join(file_names) + '" | dmenu -i'
 
