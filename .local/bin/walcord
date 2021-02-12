@@ -1,1 +1,3 @@
-/home/ven/git_dotfiles/.local/bin/Walcord/walcord
+#!/bin/bash
+
+wal -i ${1:-/media/Storage/Pictures/Wallpapers} && $HOME/.local/bin/Walcord/genwalcordtheme $HOME/.cache/wal/colors.css $HOME/.local/bin/Walcord/reborn_base.theme.css $HOME/.config/BetterDiscord/themes/Walcord.theme.css

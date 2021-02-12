@@ -17,7 +17,12 @@ export TERMINAL=st
 export BROWSER=librewolf
 
 plugins=(
-  git
+  colorize
+  command-not-found
+  gitignore
+  node
+  sudo
+  yarn
   zsh-syntax-highlighting
   zsh-autosuggestions
 )

@@ -15,7 +15,7 @@ create_haste() {
 	echo $HASTE_MIRROR/$key
 }
 
-if test ! -t 0; then
+if [ ! -t 0 ]; then
 	create_haste "$(cat)"
 elif [ -n "$1" ]; then
 	create_haste "$*"
