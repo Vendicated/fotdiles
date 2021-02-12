@@ -7,7 +7,7 @@ die() {
 
 sync_dotfiles() {
 	for item in $(ls .config); do
-		cp -r ~/.config/"$item" .config/
+		cp -r ~/.config/"$item" .config/ 2>/dev/null
 	done
 
 	git commit -am "${*:-Update dotfiles}"
@@ -22,7 +22,8 @@ install_dotfiles() {
 	done
 }
 
-[ -d .config ] || die ".config directory not found. Make sure you run this from the correct directry"
+[ -d .git ] || die ".git directory not found. Make sure you run this from the correct directry"
+[ -d .config ] || die ".config directory not found. Make sure you run this from the correct directory"
 
 if [ $1 == "sync" ]; then
 	shift
