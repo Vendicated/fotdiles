@@ -14,6 +14,10 @@ workspace 10 output eDP-1
 # Services
 #
 
+set_from_resource $fg i3wm.color1 #3EB489
+set_from_resource $bg i3wm.color0 #222222
+set_from_resource $color3 i3wm.color2 #008b8b
+
 exec --no-startup-id xrdb $HOME/.config/X11/Xresources
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 exec --no-startup-id nm-applet
@@ -156,8 +160,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-assign [class="osu!"] $ws2
-
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -218,4 +220,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        bindsym --release button3 exec --no-startup-id dmenu_script
+
+        colors {
+                background $bg
+                statusline $fg
+                focused_workspace $fg $bg $fg
+                inactive_workspace $color3 $bg $color3
+        }
 }

@@ -2,6 +2,7 @@ call plug#begin()
 
 " THEMES
 Plug 'joshdick/onedark.vim'	  " OneDarkPro Theme
+Plug 'dylanaraps/wal.vim'     " Theme based on pywal scheme
 Plug 'ryanoasis/vim-devicons'	  " File Icons
 Plug 'vim-airline/vim-airline'	  " Status Bar
 Plug 'vim-airline/vim-airline-themes'
@@ -61,6 +62,7 @@ syntax on
 set number
 
 colorscheme onedark
+" colorscheme wal
 " Make vim transparent
 hi Normal guibg=NONE ctermbg=NONE 
 
