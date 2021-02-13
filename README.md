@@ -1,3 +1,3 @@
-## Arch dotfiles loooool
+# My dots
 
-Actual zoomer setup pepelaugh
+Yeah
