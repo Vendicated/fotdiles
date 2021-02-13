@@ -1,0 +1,26 @@
+[global]
+    monitor = 1
+    geometry = "400x5-40-40"
+    shrink = no
+    # transparency = 10
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 1
+    font = Noto sans 11
+    corner_radius = 5
+
+[urgency_low]
+    background = "{background}"
+    foreground = "{foreground}"
+    timeout = 3
+
+[urgency_normal]
+    background = "{background}"
+    foreground = "{foreground}"
+    frame_color = "{foreground}"
+    timeout = 3
+
+[urgency_critical]
+    background = "{background}"
+    foreground = "{foreground}"
+    frame_color = "{color2}"
