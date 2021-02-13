@@ -10,25 +10,27 @@ workspace 1 output HDMI-1
 workspace 2 output HDMI-1
 workspace 10 output eDP-1
 
+set_from_resource $fg foreground #3EB489
+set_from_resource $bg background #222222
+set_from_resource $color3 color2 #008b8b
+
 #
 # Services
 #
 
-set_from_resource $fg i3wm.color1 #3EB489
-set_from_resource $bg i3wm.color0 #222222
-set_from_resource $color3 i3wm.color2 #008b8b
-
 exec --no-startup-id xrdb $HOME/.config/X11/Xresources
-exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
+exec --no-startup-id wal -R
+
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id xcompmgr
+
 exec --no-startup-id dunst
-exec --no-startup-id i3alternate
+
 exec --no-startup-id unclutter
-exec --no-startup-id xwallpaper --zoom $HOME/.local/share/wallpaper
-exec --no-startup-id wal -R
+exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
+exec --no-startup-id i3alternate
 
 #
 # Key Binds
@@ -57,6 +59,7 @@ bindsym $mod+ctrl+Right workspace next
 bindsym --whole-window --border $mod+Button4 workspace prev
 bindsym --whole-window --border $mod+Button5 workspace next
 
+bindsym $mod+d exec --no-startup-id dmenu_script
 bindsym $mod+shift+b exec $BROWSER
 bindsym $mod+shift+d exec discord
 bindsym $mod+shift+s exec spotify
@@ -76,7 +79,6 @@ for_window [class=".*"] border pixel 0
 
 gaps inner 6
 
-
 ################################
 #           DEFAULTS           #
 ################################
@@ -93,9 +95,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-
-
-bindsym $mod+d exec --no-startup-id dmenu_script
 
 # change focus
 bindsym $mod+j focus left
@@ -131,8 +130,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
