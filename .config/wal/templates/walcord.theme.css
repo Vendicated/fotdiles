@@ -1,0 +1,25 @@
+/**
+ * @name         Walcord
+ * @description  Wal template using the Reborn theme as a base
+ * @author       Vendicated
+ * @version      1.0
+ * @source       https://github.com/Vendicated/dotfiles/blob/arch/.config/wal/templates/walcord.theme
+ * @authorId     343383572805058560 
+ */
+
+@import "https://monstrousdev.github.io/themes/phoenix-bundle/reborn.css";
+
+:root {{
+    --roundness: 50px;
+    --home-size: 24px;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --background-image: transparent;
+    --background-darkness: 0.75;
+
+    /* Wal Template */
+    --popup-background: url({wallpaper});
+    --main-color: {color1};
+    --hover-color: {color2};
+    --home-color: {foreground};
+  }}
+
