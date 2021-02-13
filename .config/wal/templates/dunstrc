@@ -1,13 +1,22 @@
 [global]
     monitor = 1
-    geometry = "400x5-40-40"
+    
+    font = Noto sans 11
+
+    geometry = "500x5-40-40"
     shrink = no
     # transparency = 10
-    padding = 8
-    horizontal_padding = 8
+
+    padding = 12
+    horizontal_padding = 12
     frame_width = 1
-    font = Noto sans 11
     corner_radius = 5
+    min_icon_size = 0
+    max_icon_size = 32
+
+    icon_position = left
+    alignment = left
+    vertical_alignment = center
 
 [urgency_low]
     background = "{background}"
