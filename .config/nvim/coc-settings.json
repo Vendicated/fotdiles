@@ -5,8 +5,8 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "markdown",
-    "css"
+    "markdown"
+    // "css" // Disabled because it keeps messing up BD Theme wal template
   ],
   "coc.preferences.formatOnType": true,
   "cSpell.userWords": [

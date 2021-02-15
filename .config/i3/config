@@ -66,7 +66,7 @@ bindsym $mod+shift+s exec spotify
 bindsym $mod+shift+f exec nemo
 
 bindsym Print exec --no-startup-id flameshot gui
-bindsym shift+Print exec --no-startup-id "flameshot gui -r > /tmp/owoscreenshot.png && owo /tmp/owoscreenshot.png && rm -f /tmp/owoscreenshot"
+bindsym shift+Print exec --no-startup-id owoscreenshot
 
 bindsym $mod+shift+v exec --no-startup-id togglevpn
 bindsym $mod+shift+t exec --no-startup-id toggleXcompmgr
