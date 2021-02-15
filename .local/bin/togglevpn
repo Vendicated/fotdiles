@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 notify="notify-send -a ProtonVPN -i /home/ven/.local/share/icons/protonvpn.png -t 4000"
 

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+flameshot gui -r | owo -n _.png -t image/png - | xclip -i -selection clipboard

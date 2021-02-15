@@ -14,8 +14,8 @@ if json_path.exists():
     import json
     colors = json.loads(json_path.read_text())["colors"]
 
-def get_field_value(content: str, field: str):
-    match = re.search(f"{field}=([^\n]+)", content)
+def get_field_value(content: str, field: str, eof: str = "\n"):
+    match = re.search(f"{field}=([^{eof}]+)", content)
 
     return match and match.group(1)
 
@@ -25,7 +25,7 @@ for path in paths:
     app_dir = (Path(path) / "applications").expanduser()
     if not app_dir.exists():
         continue
-    
+
     for file in app_dir.glob("*.desktop"):
         content = file.read_text()
         if "[Desktop Entry]" not in content or any(
@@ -33,7 +33,7 @@ for path in paths:
             continue
 
         name = get_field_value(content, "Name") or file.name
-        cmd = get_field_value(content, "Exec")
+        cmd = get_field_value(content, "Exec", eof=" ")
         if cmd:
             desktop_files[name] = cmd
 

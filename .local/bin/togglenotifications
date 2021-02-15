@@ -1,0 +1,13 @@
+#!/bin/bash
+
+notify="notify-send -a Dunst -t 2000"
+
+if [ $(dunstctl is-paused) = "false" ]; then
+	$notify -u critical "Dunst" "Disabled Notifications"
+	sleep 2.1
+	dunstctl set-paused true
+else
+	dunstctl set-paused false
+	$notify -u normal "Dunst" "Enabled Notifications"
+fi
+
