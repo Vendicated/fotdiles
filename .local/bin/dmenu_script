@@ -44,11 +44,9 @@ if colors:
     bg = colors["color1"]
     command += f" -nf '{bg}' -nb '{fg}' -sf '{fg}' -sb '{bg}'"
 
-print(command)
 choice = subprocess.getoutput(command)
 
 if choice in desktop_files:
     subprocess.run(["/usr/bin/i3-msg", "exec", "gtk-launch", desktop_files[choice]])
 else:
-    print(choice)
     print("Successfully cancelled!")
