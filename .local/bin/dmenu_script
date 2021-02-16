@@ -33,9 +33,7 @@ for path in paths:
             continue
 
         name = get_field_value(content, "Name") or file.name
-        cmd = get_field_value(content, "Exec", eof=" ")
-        if cmd:
-            desktop_files[name] = cmd
+        desktop_files[name] = file.name
 
 file_names = sorted(desktop_files.keys(), key=str.casefold)
 
@@ -46,9 +44,11 @@ if colors:
     bg = colors["color1"]
     command += f" -nf '{bg}' -nb '{fg}' -sf '{fg}' -sb '{bg}'"
 
-output = subprocess.getoutput(command)
+print(command)
+choice = subprocess.getoutput(command)
 
-if output not in desktop_files:
-    print("Successfully cancelled!")
+if choice in desktop_files:
+    subprocess.run(["/usr/bin/i3-msg", "exec", "gtk-launch", desktop_files[choice]])
 else:
-    subprocess.run(["/usr/bin/i3-msg", "exec", desktop_files[output]])
+    print(choice)
+    print("Successfully cancelled!")
