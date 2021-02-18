@@ -1,6 +1,6 @@
 {
   "OutputMode": {
-    "Path": "OpenTabletDriver.Desktop.Output.LinuxArtistMode",
+    "Path": "OpenTabletDriver.Desktop.Output.AbsoluteMode",
     "Settings": [],
     "Enable": true
   },
@@ -8,9 +8,9 @@
   "AutoHook": true,
   "LockUsableAreaDisplay": true,
   "LockUsableAreaTablet": false,
-  "DisplayWidth": 1680.0,
-  "DisplayHeight": 1050.0,
-  "DisplayXOffset": 2760.0,
+  "DisplayWidth": 1920.0,
+  "DisplayHeight": 1200.0,
+  "DisplayXOffset": 1920.0,
   "DisplayYOffset": 525.0,
   "TabletWidth": 70.0,
   "TabletHeight": 37.5,
@@ -54,4 +54,3 @@
   "Tools": [],
   "Interpolators": []
 }
-
