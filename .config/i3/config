@@ -8,7 +8,7 @@
 
 workspace 1 output HDMI-1
 workspace 2 output HDMI-1
-workspace 10 output eDP-1
+workspace 10 output eDP
 
 set_from_resource $fg foreground #3EB489
 set_from_resource $bg background #222222
