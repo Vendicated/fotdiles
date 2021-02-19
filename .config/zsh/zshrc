@@ -12,7 +12,7 @@ export ZSH_CUSTOM=$HOME/.config/zsh/custom
 export PATH=$HOME/.local/bin:$PATH
 export EDITOR=nvim
 export VISUAL=nvim
-export TERMINAL=kitty
+export TERMINAL=alacritty
 # export BROWSER=firefox
 export BROWSER=librewolf
 
@@ -44,3 +44,8 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   startx
 fi
 
+(cat ~/.cache/wal/sequences &)
+
+echo "\033[33m---\033[0m"
+fortune -a | eval $(echo "cowsay\nponysay" | shuf -n 1)
+echo "\033[33m---\033[0m"
