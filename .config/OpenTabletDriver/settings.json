@@ -1,6 +1,6 @@
 {
   "OutputMode": {
-    "Path": "OpenTabletDriver.Desktop.Output.AbsoluteMode",
+    "Path": "OpenTabletDriver.Desktop.Output.LinuxArtistMode",
     "Settings": [],
     "Enable": true
   },
@@ -8,15 +8,15 @@
   "AutoHook": true,
   "LockUsableAreaDisplay": true,
   "LockUsableAreaTablet": false,
-  "DisplayWidth": 1920.0,
-  "DisplayHeight": 1200.0,
-  "DisplayXOffset": 1920.0,
+  "DisplayWidth": 1680.0,
+  "DisplayHeight": 1050.0,
+  "DisplayXOffset": 2760.0,
   "DisplayYOffset": 525.0,
-  "TabletWidth": 70.0,
-  "TabletHeight": 37.5,
-  "TabletXOffset": 72.03777,
-  "TabletYOffset": 19.428764,
-  "TabletRotation": 0.0,
+  "TabletWidth": 63.0,
+  "TabletHeight": 44.0,
+  "TabletXOffset": 39.761654,
+  "TabletYOffset": 56.158527,
+  "TabletRotation": -90.0,
   "EnableClipping": true,
   "EnableAreaLimiting": false,
   "LockAspectRatio": false,
@@ -32,7 +32,7 @@
       "Settings": [
         {
           "Property": "Property",
-          "Value": "Left",
+          "Value": "Right",
           "HasValue": true
         }
       ],
@@ -43,14 +43,21 @@
       "Settings": [
         {
           "Property": "Property",
-          "Value": "Left",
+          "Value": "Right",
           "HasValue": true
         }
       ],
       "Enable": true
     }
   ],
-  "AuxButtons": [null, null, null, null, null, null],
+  "AuxButtons": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
   "Tools": [],
   "Interpolators": []
 }
