@@ -40,12 +40,13 @@ source $ZSH/oh-my-zsh.sh
 eval "$(dircolors -p | sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | dircolors /dev/stdin)"
 
 # Automatically start X at login
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  startx
-fi
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#  startx
+#else
+  (cat ~/.cache/wal/sequences &)
 
-(cat ~/.cache/wal/sequences &)
+  echo "\033[33m---\033[0m"
+  fortune -a | eval $(echo "cowsay\nponysay" | shuf -n 1)
+  echo "\033[33m---\033[0m"
+#fi
 
-echo "\033[33m---\033[0m"
-fortune -a | eval $(echo "cowsay\nponysay" | shuf -n 1)
-echo "\033[33m---\033[0m"
