@@ -17,14 +17,14 @@ def get_num(t, prompt: str, min: float = None, max: float = None, default = None
     while 1:
         try:
             choice = input()
-            if choice is None and default is not None:
+            if choice == "" and default is not None:
                 print(f"Defaulting to {default}")
                 return default
             choice = t(choice)
             if min and choice < min:
-                raise TypeError(f"Must be at least {min}")
+                raise TypeError(f"Must be at least {int(min)}")
             if max and choice > max:
-                raise TypeError(f"Must be no more than {max}")
+                raise TypeError(f"Must be no more than {int(max)}")
             return choice
         except ValueError:
             print("Not a valid number. Try again")
@@ -40,71 +40,79 @@ def parse_id(line: str):
 
     return id and id.group(1)
 
-WACOM_ID=None
 
-choices = [line for line in get_output("list").splitlines() if "STYLUS" in line]
-
-count = len(choices)
-if count == 0:
-    die("No tablets detected")
-elif count == 1:
-    print("Found device:")
-    print(choices[0])
-    if input("Select? [Y|n] ").lower() == "n":
-        die("Cancelled!")
-    else:
-        WACOM_ID = parse_id(choices[0])
-else:
-    print("Found multiple devices:")
-    for i, line in enumerate(choices):
-        print(f"[{i}] {line}")
-    choice = get_num(int, "Choose one", min=0, max=count)
-    WACOM_ID = parse_id(choices[choice])
-    
-if not WACOM_ID:
-    die("Failed to retrieve Wacom ID")
+def main():
+	WACOM_ID=None
+	
+	choices = [line for line in get_output("list").splitlines() if "STYLUS" in line]
+	
+	count = len(choices)
+	if count == 0:
+	    die("No tablets detected")
+	elif count == 1:
+	    print("Select the following device? [Y|n]")
+	    print(choices[0])
+	    if input().lower() == "n":
+	        die("Cancelled!")
+	    else:
+	        WACOM_ID = parse_id(choices[0])
+	else:
+	    print("Found multiple devices:")
+	    for i, line in enumerate(choices):
+	        print(f"[{i}] {line}")
+	    choice = get_num(int, "Choose one", min=0, max=count)
+	    WACOM_ID = parse_id(choices[choice])
+	    
+	if not WACOM_ID:
+	    die("Failed to retrieve Wacom ID")
+	
+	try:
+	    get_output("set", str(WACOM_ID), "ResetArea")
+	    x, y, size_X, size_Y = [int(x) for x in get_output("get", str(WACOM_ID), "Area").split(" ")]
+	except Exception as ex:
+	    die("Failed to parse Tablet properties\n" + str(ex))
+	
+	print(f"Found Tablet with dimension {size_X}x{size_Y} ({size_X / size_Y})")
+	size = get_num(float, "Please choose the size of the area (0-1) ", 0.1, 1)
+	
+	if size == 1:
+	    die("Done!")
+	
+	center_X = size_X / 2
+	center_Y = size_Y / 2
+	
+	x_offset_max = center_X - center_X * size
+	x_offset_min = x_offset_max * -1
+	y_offset_max = center_Y - center_Y * size
+	y_offset_min = y_offset_max * -1
+	    
+	print("The area is centered by default. You can customise this via X or Y offsets")
+	
+	offset_X = get_num(int, f"Would you like any X Offset? (min: {x_offset_min} [<-] max: {x_offset_max} [->]) [0]", min=x_offset_min, max=x_offset_max, default=0)
+	offset_Y = get_num(int, f"Would you like any Y Offset? (min: {y_offset_min} [UP] max: {y_offset_max} [DOWN]) [0]]", min=y_offset_min, max=y_offset_max, default=0)
+	
+	x1 = center_X - center_X * size + offset_X
+	y1 = center_Y - center_Y * size + offset_Y
+	x2 = center_X + center_X * size + offset_X
+	y2 = center_Y + center_Y * size + offset_Y
+	
+	command = [str(int(i)) for i in [x1, y1, x2, y2]]
+	
+	cmd_str = f"xsetwacom set {WACOM_ID} Area {' '.join(command)}"
+	make_persistent_notice = "To make these changes permament, add the following to your ~/.profile"
+	
+	delimiter = "-" * len(cmd_str)
+	print()
+	print(make_persistent_notice)
+	print(delimiter)
+	print(cmd_str)
+	print(delimiter)
+	
+	get_output("set", WACOM_ID, "Area", *command)
+	
 
 try:
-    get_output("set", str(WACOM_ID), "ResetArea")
-    x, y, mX, mY = [int(x) for x in get_output("get", str(WACOM_ID), "Area").split(" ")]
-except Exception as ex:
-    die("Failed to parse Tablet properties\n" + str(ex))
-
-print(f"Found Tablet with dimension {mX}x{mY} ({mX / mY})")
-size = get_num(float, "Please choose the size of the area (0-1) ", 0.1, 1)
-
-if size == 1:
-    die("Cancelling!")
-
-xOff, yOff = 0, 0
-
-cX = mX / 2
-cY = mY / 2
-
-x_offset_max = mX - cX - cX * size
-x_offset_min = x_offset_max * -1
-y_offset_max = mY - cY - cY * size
-y_offset_min = y_offset_max * -1
-    
-print("By default the area will be centered")
-xOff = get_num(int, f"Would you like any X Offset? (min: {x_offset_min} max: {x_offset_max}) ", min=x_offset_min, max=x_offset_max, default=0)
-yOff = get_num(int, f"Would you like any Y Offset? (min: {y_offset_min} max: {y_offset_max}) ", min=y_offset_min, max=y_offset_max, default=0)
-
-x1 = cX - cX * size + xOff
-y1 = cY - cY * size + yOff
-x2 = cX + cX * size + xOff
-y2 = cY + cY * size + yOff
-
-command = [str(int(i)) for i in [x1, y1, x2, y2]]
-
-cmd_str = f"xsetwacom set {WACOM_ID} Area {' '.join(command)}"
-make_persistent_notice = "To make these changes permament, add the following to your ~/.profile"
-delimiter = "-" * len(cmd_str)
-print()
-print(make_persistent_notice)
-print(delimiter)
-print(cmd_str)
-print(delimiter)
-
-get_output("set", WACOM_ID, "Area", *command)
-
+    main()
+except KeyboardInterrupt:
+    print()
+    die("Canceled.")
