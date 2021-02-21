@@ -46,7 +46,7 @@ bindsym ctrl+Mod1+Delete exit
 bindsym ctrl+Mod1+BackSpace exec shutdown now
 
 # Edit config
-bindsym $mod+Shift+e exec $TERMINAL nvim ~/.config/i3/config
+bindsym $mod+Shift+e exec gtk-launch nvim.desktop ~/.config/i3/config
 
 # kill focused window
 bindsym $mod+q kill
