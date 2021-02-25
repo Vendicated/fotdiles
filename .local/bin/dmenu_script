@@ -55,6 +55,6 @@ if choice:
         else:
             subprocess.run(["/usr/bin/i3-msg", "exec", "gtk-launch", app["name"]])
     else:
-        subprocess.run(choice)
+        subprocess.run([ "/usr/bin/i3-msg", "exec", choice ])
 else:
     print("Successfully cancelled!")
