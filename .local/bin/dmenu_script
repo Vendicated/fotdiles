@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import subprocess
 
-paths = [ "/usr/share", "~/.local/share", "/var/lib/flatpak/exports/share"]
+paths = [ "/usr/share", "~/.local/share", "/var/lib/flatpak/exports/share", "~/.local/share/flatpak/exports/share" ]
 exclude_fields = ["NoDisplay", "Hidden"]
 
 colors = None
