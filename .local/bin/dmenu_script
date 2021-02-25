@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import subprocess
 
-paths = [ "/usr/share", "~/.local/share"]
+paths = [ "/usr/share", "~/.local/share", "/var/lib/flatpak/exports/share"]
 exclude_fields = ["NoDisplay", "Hidden"]
 
 colors = None
@@ -33,7 +33,8 @@ for path in paths:
             continue
 
         name = get_field_value(content, "Name") or file.name
-        desktop_files[name] = file.name
+        is_flatpak = "X-Flatpak" in content
+        desktop_files[name] = { "name": file.stem, "is_flatpak": is_flatpak }
 
 file_names = sorted(desktop_files.keys(), key=str.casefold)
 
@@ -46,7 +47,14 @@ if colors:
 
 choice = subprocess.getoutput(command)
 
-if choice in desktop_files:
-    subprocess.run(["/usr/bin/i3-msg", "exec", "gtk-launch", desktop_files[choice]])
+if choice:
+    if choice in desktop_files:
+        app = desktop_files[choice]
+        if app["is_flatpak"]:
+            subprocess.run([ "/usr/bin/i3-msg", "exec", "flatpak", "run", app["name"]])
+        else:
+            subprocess.run(["/usr/bin/i3-msg", "exec", "gtk-launch", app["name"]])
+    else:
+        subprocess.run(choice)
 else:
     print("Successfully cancelled!")
