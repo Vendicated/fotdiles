@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export WINEPREFIX=$HOME/.local/share/PlantsVsZombies
+
+wine explorer /desktop=PvZ,1920x1080 "$WINEPREFIX/drive_c/Program Files/Plants vs Zombies/PlantsVsZombies.exe" -changedir
