@@ -1,11 +1,13 @@
 #!/bin/bash
 
 export WINEPREFIX="$HOME/.wine_osu"
-export STAGING_AUDIO_DURATION=10000
+export STAGING_AUDIO_DURATION=25000
+export STAGING_AUDIO_PERIOD=15000
 export PATH=/opt/wine-osu/bin:$PATH
+
+preparetablet
 
 cd ~/osu!
 wine winediscordipcbridge.exe &
-sleep 3 &&
 wine explorer /desktop=osu\!,1680x1050 osu!.exe "$@"
 
