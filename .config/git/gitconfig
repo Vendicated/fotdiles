@@ -1,0 +1,24 @@
+[user]
+   email = vendicated@riseup.net
+   name = Vendicated 
+
+[pull]
+   rebase = false
+
+[core]
+   excludesfile = /home/ven/.config/git/gitignore_global
+   editor = nvim
+
+[init]
+   defaultBranch = master
+
+[alias]
+   acm = !git add -A . && git commit -m
+   co = checkout
+   cm = commit -m
+   dev = !git checkout dev && git pull origin dev
+   master = !git checkout master && git pull origin
+   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+   syncfork = !git fetch upstream && git checkout master && git merge upstream/master
+   unstage = reset --soft HEAD^
