@@ -6,7 +6,7 @@ alias shutdown="shutdown now"
 alias rg="rg --no-ignore --hidden"
 alias yay="echo 'USE PARU IDIOT' && paru"
 alias pin="paru -S"
-alias pun="paru -Rs"
+alias pun="paru -Rns"
 alias pup="paru -Syu"
 alias src="source $HOME/.zshrc"
 
