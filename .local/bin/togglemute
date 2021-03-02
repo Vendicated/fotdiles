@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Unique message id so notifications get replaced
+msgId="69420"
+
+pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+
+is_muted="$(pactl list sinks | grep '^[[:space:]]Mute: yes')"
+
+if [[ -n "$is_muted" ]]; then
+	dunstify -a "changeVolume" -u low -i audio-volume-muted -r "$msgId" "Volume muted"
+else
+	dunstify -a "changeVolume" -u low -i audio-volume-unmuted -r "$msgId" "Volume unmuted"
+fi

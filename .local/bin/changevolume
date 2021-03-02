@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Unique message id so notifications get replaced
+msgId="69420"
+
+is_muted="$(pactl list sinks | grep '^[[:space:]]Mute: yes')"
+
+# If is muted, unmute else change volume
+if [[ -n "$is_muted" ]]; then
+    pactl set-sink-mute @DEFAULT_SINK@ 0
+else
+    pactl set-sink-volume @DEFAULT_SINK@ "$@" 
+fi
+
+# Kill i3status to refresh it
+killall -SIGUSR1 i3status
+
+volume="$(pactl list sinks | \
+    grep '^[[:space:]]Volume:' | \
+    head -n $(( $SINK + 1 )) | \
+    tail -n 1 | \
+    sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' \
+    )"
+
+
+dunstify -a "changeVolume" -u low -i audio-volume-high -r "$msgId" \
+    -h int:value:"$volume" "Volume: ${volume}%"
+
+canberra-gtk-play -i audio-volume-change -d "changeVolume"
