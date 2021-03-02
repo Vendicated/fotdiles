@@ -16,9 +16,12 @@
    acm = !git add -A . && git commit -m
    co = checkout
    cm = commit -m
+   cam = commit -am
    dev = !git checkout dev && git pull origin dev
    master = !git checkout master && git pull origin
    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+   p = push
+   st = status
    syncfork = !git fetch upstream && git checkout master && git merge upstream/master
    unstage = reset --soft HEAD^
