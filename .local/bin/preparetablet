@@ -1,4 +1,6 @@
 #!/bin/bash
 
-xsetwacom set 11 MapToOutput 1680x1050+1920+0
-xsetwacom set 11 Area 828 717 7972 5182
+TABLET_ID=$(xsetwacom list | grep -Eo "id: ([[:digit:]]+)[[:space:]]type: STYLUS" | grep -Eo "[[:digit:]]+")
+
+xsetwacom set $TABLET_ID MapToOutput 1680x1050+1920+0
+xsetwacom set $TABLET_ID Area 828 717 7972 5182

@@ -15,13 +15,14 @@ fi
 # Kill i3status to refresh it
 killall -SIGUSR1 i3status
 
+# https://unix.stackexchange.com/a/230533
 SINK="$(LC_ALL=C pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')"
 volume="$(LC_ALL=C pactl list sinks | \
     grep '^[[:space:]]Volume:' | \
     head -n $(( $SINK + 1 )) | \
     tail -n 1 | \
     sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' \
-    )"
+)"
 
 
 dunstify -a "changeVolume" -u low -i audio-volume-high -r "$msgId" \
