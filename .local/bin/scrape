@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[[ -z "$1" ]] && { echo "Usage: $0 <base domain> [subdomain to scrape]"; exit; }
+
+wget \
+     --recursive \
+     --page-requisites \
+     --adjust-extension \
+     --span-hosts \
+     --convert-links \
+     --domains "$1" \
+     --no-parent \
+         "${2:-$1}"
