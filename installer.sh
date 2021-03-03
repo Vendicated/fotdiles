@@ -5,31 +5,32 @@ die() {
 	exit
 }
 
-sync_dotfiles() {
-	for item in $(ls .config); do
-		cp -r ~/.config/"$item" .config/ 2>/dev/null
+# Usage: SourceDirectory TargetDirectory
+link_recursive() {
+	for file in $(ls "$1"); do
+		ln -s "$1/$file" "$2/$file"
 	done
-
-	git commit -am "${*:-Update dotfiles}"
-	git push
 }
 
 install_dotfiles() {
-	[ -d .git ] && git pull --quiet
+	git pull --quiet
 
-	for item in $(ls .config); do
-		cp -r ".config/$item" ~/.config/
-	done
+	mkdir -p "$HOME/.config"
+	mkdir -p "$HOME/.local/bin"
+
+	link_recursive "$PWD/.config" "$HOME/.config"
+	link_recursive "$PWD/.local/bin" "$HOME/.local/bin"
 }
 
 [ -d .git ] || die ".git directory not found. Make sure you run this from the correct directry"
 [ -d .config ] || die ".config directory not found. Make sure you run this from the correct directory"
+[ -d .local/bin ] || die ".local/bin directory not found. Make sure you run this from the correct directory"
 
-if [ $1 == "sync" ]; then
-	shift
-	sync_dotfiles $*
-elif [ $1 == "install" ]; then
+if [ "$1" == "install" ]; then
 	install_dotfiles
 else
-	echo "Usage: $0 <install | sync>"
+	echo "Tool to symlink everything inside .config and .local/bin"
+	echo "to respective folder in $HOME"
+	echo
+	echo "Usage: $0 <install | help>"
 fi
