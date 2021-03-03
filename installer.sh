@@ -6,7 +6,7 @@ die() {
 }
 
 # Usage: SourceDirectory TargetDirectory
-link_recursive() {
+link_all() {
 	for file in $(ls "$1"); do
 		ln -s "$1/$file" "$2/$file"
 	done
@@ -18,8 +18,8 @@ install_dotfiles() {
 	mkdir -p "$HOME/.config"
 	mkdir -p "$HOME/.local/bin"
 
-	link_recursive "$PWD/.config" "$HOME/.config"
-	link_recursive "$PWD/.local/bin" "$HOME/.local/bin"
+	link_all "$PWD/.config" "$HOME/.config"
+	link_all "$PWD/.local/bin" "$HOME/.local/bin"
 }
 
 [ -d .git ] || die ".git directory not found. Make sure you run this from the correct directry"
