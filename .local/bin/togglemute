@@ -10,5 +10,21 @@ is_muted="$(pactl list sinks | grep '^[[:space:]]Mute: yes')"
 if [[ -n "$is_muted" ]]; then
 	dunstify -a "changeVolume" -u low -i audio-volume-muted -r "$msgId" "Volume muted"
 else
-	dunstify -a "changeVolume" -u low -i audio-volume-unmuted -r "$msgId" "Volume unmuted"
+	SINK="$(LC_ALL=C pactl list short | grep RUNNING | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,')"
+	volume="$(LC_ALL=C pactl list sinks | \
+    grep '^[[:space:]]Volume:' | \
+    head -n $(( $SINK + 1 )) | \
+    tail -n 1 | \
+    sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' \
+	)"
+
+	if (( $volume > 66 )); then
+    icon=audio-volume-high
+	elif (( $volume > 33 )); then
+    icon=audio-volume-medium
+	else
+    icon=audio-volume-low
+	fi
+
+	dunstify -a "changeVolume" -u low -i $icon -r "$msgId" "Volume unmuted"
 fi
