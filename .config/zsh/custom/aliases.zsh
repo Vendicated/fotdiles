@@ -10,6 +10,10 @@ alias pun="paru -Rns"
 alias pup="paru -Syu"
 alias src="source $HOME/.zshrc"
 
+wal() {
+  command wal $* && cp $HOME/.cache/wal/walcord.theme.css $HOME/.var/app/com.discordapp.Discord/config/BetterDiscord/themes
+}
+
 cowsay() {
   local cow="$(command cowsay -l | sed -e "1d" -e "s/\s/\n/g" | shuf -n 1)"
   command cowsay -f "$cow" $*

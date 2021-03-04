@@ -8,6 +8,7 @@ die() {
 # Usage: SourceDirectory TargetDirectory
 link_all() {
 	for file in $(ls "$1"); do
+		[[ -e "$2/$file" ]] && rm -rf "$2/$file"
 		ln -s "$1/$file" "$2/$file"
 	done
 }
