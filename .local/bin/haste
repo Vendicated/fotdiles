@@ -9,7 +9,7 @@ die() {
 
 create_haste() {
 	res=$(curl -sS -f -XPOST $HASTE_MIRROR/documents -d "$1")
-	[ -z "$res" ] && die "Failed to fetch $HASTE_MIRROR. Consider changing mirror"
+	[ -z "$res" ] && die "Failed to post to $HASTE_MIRROR/documents. Consider changing mirror"
 	key=$(echo "$res" | jq -r .key 2> /dev/null)
 	[ -z $key ] && die "Failed to parse response"
 	echo $HASTE_MIRROR/$key
