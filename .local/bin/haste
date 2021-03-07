@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HASTE_MIRROR=${HASTE_MIRROR:-https://hb.wrmsr.io}
+HASTE_MIRROR=${HASTE_MIRROR:-https://hb.vendicated.dev}
 
 die() {
 	echo "$*"
@@ -8,8 +8,8 @@ die() {
 }
 
 create_haste() {
-	res=$(wget -qO- $HASTE_MIRROR/documents --post-data="$1")
-	[ -z "$res" ] && die "Failed to fetch hastebin api"
+	res=$(curl -sS -f -XPOST $HASTE_MIRROR/documents -d "$1")
+	[ -z "$res" ] && die "Failed to fetch $HASTE_MIRROR. Consider changing mirror"
 	key=$(echo "$res" | jq -r .key 2> /dev/null)
 	[ -z $key ] && die "Failed to parse response"
 	echo $HASTE_MIRROR/$key
@@ -18,7 +18,9 @@ create_haste() {
 if [ ! -t 0 ]; then
 	create_haste "$(cat)"
 elif [ -n "$1" ]; then
-	create_haste "$*"
+	text="$*"
+	[ -f "$1" ] && text=$(<"$1")
+	create_haste "$text"
 else
 	echo "Usage: $0 <text>"
 fi
