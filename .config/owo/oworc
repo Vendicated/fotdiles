@@ -1,0 +1,20 @@
+# this file must be located in one of the following locations:
+# ~/.oworc
+# $XDG_CONFIG_HOME/owo/oworc
+# ~/.config/owo/oworc
+# it is recommended to set its permissions to 600 as its contents
+# are confidential
+
+# set to opt into associated uploads
+# see: https://manager.owo.cloud/
+OWO_ASSOCIATED=1
+
+# set to one of the CDN domains
+# see: https://whats-th.is/faq.html#how-to-access-files
+OWO_DOMAIN="ven.uwu.foundation"
+
+# set to prevent owo(1) from buffering standard input to a file on disk
+# see: mktemp(1)
+OWO_NO_BUFFER=
+
+# vim: syntax=sh:softtabstop=4:tabstop=4:shiftwidth=4:expandtab
