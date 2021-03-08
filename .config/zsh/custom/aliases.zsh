@@ -11,7 +11,11 @@ alias pup="paru -Syu"
 alias src="source $HOME/.zshrc"
 
 owo() {
-  command owo $* | xclip -selection clipboard && notify-send -i $HOME/.local/share/icons/owo.png "OwO" "Copied url to clipboard!"
+  local output=$(command owo $*)
+  if [ $? -eq 0 ] && [ -n "$output" ]; then
+    xclip -selection clipboard <<< "$output" && \
+      notify-send -i $HOME/.local/share/icons/owo.png "OwO" "Copied url to clipboard!"
+  fi
 }
 
 wal() {
