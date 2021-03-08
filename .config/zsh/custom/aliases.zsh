@@ -10,6 +10,10 @@ alias pun="paru -Rns"
 alias pup="paru -Syu"
 alias src="source $HOME/.zshrc"
 
+owo() {
+  command owo $* | xclip -selection clipboard && notify-send -i $HOME/.local/share/icons/owo.png "OwO" "Copied url to clipboard!"
+}
+
 wal() {
   command wal $* && cp $HOME/.cache/wal/walcord.theme.css $HOME/.var/app/com.discordapp.Discord/config/BetterDiscord/themes
 }
