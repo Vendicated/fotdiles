@@ -71,7 +71,9 @@ bindsym $mod+shift+s exec flatpak run com.spotify.Client
 bindsym $mod+shift+f exec nemo
 
 bindsym Print exec --no-startup-id flameshot gui
+bindsym ctrl+Print exec --no-startup-id flameshot screen --clipboard
 bindsym shift+Print exec --no-startup-id owoscreenshot
+bindsym ctrl+shift+Print exec --no-startup-id owoscreenshot full
 
 bindsym $mod+shift+v exec --no-startup-id togglevpn
 bindsym $mod+shift+t exec --no-startup-id toggleXcompmgr

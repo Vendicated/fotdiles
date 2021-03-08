@@ -1,3 +1,12 @@
 #!/bin/bash
 
-flameshot gui -r | owo -n _.png -t image/png - | xclip -i -selection clipboard
+if [ "$1" == "full" ]; then
+	arg="screen"
+else
+	arg="gui"
+fi
+
+data="$(flameshot $arg --raw | base64)"
+[[ "$data" == $(base64 <<< "screenshot aborted") ]] && exit
+
+base64 -d <<< $data | owo -n _.png -t image/png - | xclip -selection clipboard && notify-send -i $HOME/.local/share/icons/owo.png OwO "Copied to clipboard"
