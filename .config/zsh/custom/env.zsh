@@ -1,1 +1,1 @@
-export FZF_DEFAULT_COMMAND="find -L"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
