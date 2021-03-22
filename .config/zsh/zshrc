@@ -9,7 +9,7 @@ DISABLE_UPDATE_PROMPT="true"
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.config/zsh/custom
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=alacritty
@@ -47,7 +47,9 @@ eval "$(dircolors -p | sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 
   (cat ~/.cache/wal/sequences &)
 
   echo "\033[33m---\033[0m"
-  fortune -a | eval $(echo "cowsay\nponysay" | shuf -n 1)
+  cmd=cowsay
+  # cmd=$(echo "cowsay\nponysay" | shuf -n 1)
+  fortune -a | eval $cmd
   echo "\033[33m---\033[0m"
 #fi
 

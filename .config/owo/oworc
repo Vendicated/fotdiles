@@ -11,7 +11,8 @@ OWO_ASSOCIATED=1
 
 # set to one of the CDN domains
 # see: https://whats-th.is/faq.html#how-to-access-files
-OWO_DOMAIN="ven.uwu.foundation"
+OWO_DOMAIN="pantsu.review"
+# OWO_DOMAIN="ven.uwu.foundation"
 
 # set to prevent owo(1) from buffering standard input to a file on disk
 # see: mktemp(1)

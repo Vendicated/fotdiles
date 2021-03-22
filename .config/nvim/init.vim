@@ -29,6 +29,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'  	  " File Explorer
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 if (empty($TMUX))
@@ -41,7 +45,7 @@ if (empty($TMUX))
 endif
 
 set splitbelow splitright
-set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=2 expandtab shiftwidth=2 smarttab
 set number wrap relativenumber
 set signcolumn="yes"
 
@@ -80,6 +84,9 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Markdown preview
+nmap <leader>p <Plug>MarkdownPreviewToggle
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)

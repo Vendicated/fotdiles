@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+
+def print_help():
+    print("Format the content of a file for usage in a Visual Studio Code")
+    print("snippet. Properly escapes Tabs and Newlines and wraps each line")
+    print()
+    print(f"Usage: {sys.argv[0]} [-h|--help][FILE] [-c|--copy]")
+    exit()
+
+try:
+    if sys.argv[1] in ("-h", "--help"):
+        print_help()
+
+    copy = len(sys.argv) > 2 and sys.argv[2] in ("--copy", "-c")
+
+    with open(sys.argv[1]) as f:
+        lines = f.readlines()
+    lines = [line.replace("\n", "").replace("\t", "\\t").replace('"', '\\"') for line in lines]
+    output = '"' + '",\n"'.join(lines) + '"'
+    
+    if copy:
+        import subprocess
+        subprocess.run(["/usr/bin/xclip", "-selection", "clipboard"], universal_newlines=True, input=output)
+    else:
+        print(output)
+except Exception as ex:
+    print(ex)
+    print_help()
+

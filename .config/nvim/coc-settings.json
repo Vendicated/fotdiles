@@ -1,12 +1,12 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
-    "javascript",
+//    "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "markdown"
-    // "css" // Disabled because it keeps messing up BD Theme wal template
+    "markdown",
+    "css" // Disabled because it keeps messing up BD Theme wal template
   ],
   "coc.preferences.formatOnType": true,
   "cSpell.userWords": [

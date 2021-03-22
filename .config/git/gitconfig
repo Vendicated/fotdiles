@@ -1,6 +1,6 @@
 [user]
-   email = vendicated@riseup.net
-   name = Vendicated 
+	email = vendicated@riseup.net
+	name = Vendicated
 
 [pull]
    rebase = false
@@ -10,7 +10,7 @@
    editor = nvim
 
 [init]
-   defaultBranch = master
+   defaultBranch = main
 
 [alias]
    acm = !git add -A . && git commit -m
