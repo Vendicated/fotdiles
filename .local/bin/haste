@@ -12,7 +12,8 @@ create_haste() {
 	[ -z "$res" ] && die "Failed to post to $HASTE_MIRROR/documents. Consider changing mirror"
 	key=$(echo "$res" | jq -r .key 2> /dev/null)
 	[ -z $key ] && die "Failed to parse response"
-	echo $HASTE_MIRROR/$key
+	echo $HASTE_MIRROR/$key | xclip -selection clipboard
+	notify-send "Haste" "Copied to clipboard"
 }
 
 if [ ! -t 0 ]; then

@@ -9,14 +9,6 @@ DISABLE_UPDATE_PROMPT="true"
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.config/zsh/custom
 
-export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
-export EDITOR=nvim
-export VISUAL=nvim
-export TERMINAL=alacritty
-export BROWSER=firefox
-# export BROWSER=librewolf
-# export BROWSER=brave
-
 plugins=(
   colorize
   command-not-found
@@ -32,24 +24,18 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Vi Mode
-# bindkey -v
-# Setting vi mode resets keybinds so source them again (sourcing zsh after setting vi mode resets to emacs mode)
-# source $ZSH_CUSTOM/keybinds.zsh
-
 # Disable ls background colors
 eval "$(dircolors -p | sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | dircolors /dev/stdin)"
 
 # Automatically start X at login
-#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-#  startx
-#else
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  startx
+else
   (cat ~/.cache/wal/sequences &)
 
   echo "\033[33m---\033[0m"
-  cmd=cowsay
-  # cmd=$(echo "cowsay\nponysay" | shuf -n 1)
+  cmd=$(echo "cowsay\nponysay" | shuf -n 1)
   fortune -a | eval $cmd
   echo "\033[33m---\033[0m"
-#fi
+fi
 
