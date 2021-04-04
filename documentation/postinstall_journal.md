@@ -12,17 +12,6 @@ Create wheel user with home dir
 useradd -m -G wheel ven
 ```
 
-Set up my dotfiles
-
-```bash
-git clone --recurse-submodules git@github.com:Vendicated/dotfiles.git
-cd dotfiles
-# Install all packages
-sudo pacman -S --needed - < pkglist.txt
-# Deploy dotfiles
-./installer.sh install
-```
-
 Install paru
 
 ```bash
@@ -30,4 +19,15 @@ sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
+```
+
+Set up my dotfiles
+
+```bash
+git clone --recurse-submodules git@github.com:Vendicated/dotfiles.git
+cd dotfiles
+# Install all packages
+paru -S --needed - < pkglist.txt
+# Deploy dotfiles
+./installer.sh install
 ```
