@@ -21,3 +21,5 @@
 *.color13: #c500ff
 *.color14: #00dcf7
 *.color15: #fff7e2
+
+Xcursor.theme: Future-dark-cursors

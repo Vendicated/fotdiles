@@ -11,8 +11,10 @@ OWO_ASSOCIATED=1
 
 # set to one of the CDN domains
 # see: https://whats-th.is/faq.html#how-to-access-files
-OWO_DOMAIN="pantsu.review"
-# OWO_DOMAIN="ven.uwu.foundation"
+# tip: you may set this to "$(shuf -n1 file)" where file is the path
+# to a file containing multiple domains seperated by newlines to choose
+# a random domain every time owo is run
+OWO_DOMAIN="${OWO_DOMAIN:-$(shuf -n1 $HOME/.config/owo/domains)}"
 
 # set to prevent owo(1) from buffering standard input to a file on disk
 # see: mktemp(1)

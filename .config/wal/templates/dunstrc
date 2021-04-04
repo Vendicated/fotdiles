@@ -26,6 +26,8 @@
     mouse_middle_click = close_all
     mouse_right_click = close_current
 
+    icon_path = /usr/share/icons/ePapirus/16x16/actions:/usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
+    
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
