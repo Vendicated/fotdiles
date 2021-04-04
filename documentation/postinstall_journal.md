@@ -17,7 +17,7 @@ Set up my dotfiles
 ```bash
 git clone --recurse-submodules git@github.com:Vendicated/dotfiles.git
 cd dotfiles
-# Install dependencies
+# Install all packages
 sudo pacman -S --needed - < pkglist.txt
 # Deploy dotfiles
 ./installer.sh install
