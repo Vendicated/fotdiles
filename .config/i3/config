@@ -69,6 +69,7 @@ bindsym $mod+shift+b exec $BROWSER
 bindsym $mod+shift+d exec flatpak run com.discordapp.DiscordCanary
 bindsym $mod+shift+s exec flatpak run com.spotify.Client
 bindsym $mod+shift+f exec nemo
+bindsym $mod+shift+o exec osu
 
 bindsym Print exec --no-startup-id flameshot gui
 bindsym ctrl+Print exec --no-startup-id flameshot screen --clipboard

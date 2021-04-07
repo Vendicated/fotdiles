@@ -96,6 +96,7 @@ linux-zen
 linux-zen-headers
 lolcat
 lxappearance-gtk3
+lynx
 m4
 make
 makefontpkg
@@ -130,7 +131,6 @@ noto-fonts
 noto-fonts-cjk
 npm
 ntfs-3g
-obs-input-overlay-bin
 obs-studio
 ocl-icd
 openal
@@ -162,8 +162,8 @@ qemu
 qt-installer-framework
 qt5-tools
 ranger
+reflector
 ripgrep
-riseup-vpn-git
 rustup
 samba
 screenkey
