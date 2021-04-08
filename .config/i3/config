@@ -25,7 +25,6 @@ exec --no-startup-id polybar main
 exec --no-startup-id polybar secondary
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id volumeicon
 exec --no-startup-id xcompmgr
 
 exec --no-startup-id dunst
