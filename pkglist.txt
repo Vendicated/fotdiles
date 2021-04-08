@@ -148,6 +148,7 @@ picom
 pixterm
 pkgconf
 pkgfile
+playerctl
 pm2
 polybar
 ponysay
@@ -172,7 +173,7 @@ rustup
 samba
 screenkey
 shellcheck
-siji-git
+siji
 sl
 slop
 speedtest-cli
@@ -186,6 +187,7 @@ texlive-core
 thunderbird
 toilet
 tree
+ttf-font-awesome-4
 ttf-hack
 ttf-ms-fonts
 ttf-symbola
@@ -264,4 +266,5 @@ xwallpaper
 yarn
 youtube-dl
 zip
+zscroll-git
 zsh
