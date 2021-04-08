@@ -17,6 +17,7 @@ blueman
 bluez
 bluez-utils
 brave-bin
+cantata
 checkbashisms
 cmake
 cowsay
@@ -114,6 +115,8 @@ mingw-w64-headers
 mingw-w64-winpthreads
 mirage
 mlocate
+mpc
+mpd
 mpg123
 mpv
 mtools
@@ -146,6 +149,7 @@ pixterm
 pkgconf
 pkgfile
 pm2
+polybar
 ponysay
 postgresql
 pulseaudio
@@ -168,6 +172,7 @@ rustup
 samba
 screenkey
 shellcheck
+siji-git
 sl
 slop
 speedtest-cli
@@ -183,6 +188,7 @@ toilet
 tree
 ttf-hack
 ttf-ms-fonts
+ttf-symbola
 ttf-twemoji
 tuxi-git
 unclutter
