@@ -21,9 +21,11 @@ cantata
 checkbashisms
 cmake
 cowsay
+cronie
 dash
 dex
 dialog
+discord-canary
 discount
 dmenu
 dnsmasq
@@ -96,6 +98,7 @@ linux-headers
 linux-zen
 linux-zen-headers
 lolcat
+lua
 lxappearance-gtk3
 lynx
 m4
@@ -137,6 +140,7 @@ ntfs-3g
 obs-studio
 ocl-icd
 openal
+opentabletdriver-git
 openvpn
 os-prober
 pacutils
