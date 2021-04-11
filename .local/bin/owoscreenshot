@@ -1,12 +1,18 @@
 #!/bin/bash
+set -e
 
-if [ "$1" == "full" ]; then
+if [ "$1" = "full" ]; then
 	arg="screen"
 else
 	arg="gui"
 fi
 
 data="$(flameshot $arg --raw | base64)"
-[[ "$data" == $(base64 <<< "screenshot aborted") ]] && exit
+[ "$data" = "$(echo 'screenshot aborted' | base64)" ] && exit
 
-base64 -d <<< $data | owo -n _.png -t image/png - | xclip -selection clipboard && notify-send -i $HOME/.local/share/icons/owo.png OwO "Copied to clipboard"
+echo "$data" \
+	| base64 -d  \
+	| owo -n _.png -t image/png - \
+	| xclip -selection clipboard
+
+notify-send -i "$HOME/.local/share/icons/owo.png" OwO "Copied to clipboard"

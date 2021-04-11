@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
 HASTE_MIRROR=${HASTE_MIRROR:-https://hb.vendicated.dev}
 
@@ -8,19 +9,19 @@ die() {
 }
 
 create_haste() {
-	res=$(curl -sS -f -XPOST $HASTE_MIRROR/documents -d "$1")
+	res=$(curl -sS -f -XPOST "$HASTE_MIRROR/documents" --data-binary "$1")
 	[ -z "$res" ] && die "Failed to post to $HASTE_MIRROR/documents. Consider changing mirror"
 	key=$(echo "$res" | jq -r .key 2> /dev/null)
-	[ -z $key ] && die "Failed to parse response"
-	echo $HASTE_MIRROR/$key | xclip -selection clipboard
+	[ -z "$key" ] && die "Failed to parse response"
+	echo "$HASTE_MIRROR/$key" | xclip -selection clipboard
 	notify-send "Haste" "Copied to clipboard"
 }
 
 if [ ! -t 0 ]; then
-	create_haste "$(cat)"
+	create_haste "@-"
 elif [ -n "$1" ]; then
 	text="$*"
-	[ -f "$1" ] && text=$(<"$1")
+	[ -f "$1" ] && text="@$1"
 	create_haste "$text"
 else
 	echo "Usage: $0 <text>"
