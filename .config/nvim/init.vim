@@ -1,3 +1,5 @@
+let g:ale_disable_lsp = 1
+
 call plug#begin()
 Plug 'joshdick/onedark.vim'	  " OneDarkPro Theme
 Plug 'dylanaraps/wal.vim'     " Theme based on pywal scheme
@@ -18,11 +20,13 @@ let g:coc_global_extensions = [
 	\ 'coc-sh',
 	\ 'coc-snippets',
 	\ 'coc-spell-checker',
-	\ 'coc-tslint',
 	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
 	\ 'coc-yaml',
 \ ]
+
+Plug 'dense-analysis/ale' " Used for linting
+
 Plug 'metakirby5/codi.vim' " Live scratchpad
 Plug 'sheerun/vim-polyglot'
 " Plug '907th/vim-auto-save' 	  " Auto save files
@@ -48,8 +52,9 @@ set splitbelow splitright
 set tabstop=4 softtabstop=2 expandtab shiftwidth=2 smarttab
 set number wrap relativenumber
 set signcolumn="yes"
+set mouse=a " Yes, really.
 
-filetype plugin indent on
+filetype plugin on
 syntax enable
 
 colorscheme onedark
@@ -64,12 +69,14 @@ nnoremap <silent> <C-F> :NERDTreeToggle<CR>     "<C-W><C-w>
 
 " Enable Auto Save
 " let g:auto_save = 1
+let g:ale_fix_on_save = 1
+
 
 " Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 "  Enable folding
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 nnoremap <space> za 
 
