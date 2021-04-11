@@ -1,1 +1,0 @@
-.config/zsh/Theme_P10k.zsh
