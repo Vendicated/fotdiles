@@ -8,7 +8,9 @@ die() {
 
 link_all() {
   for file in "$1/"*; do
-    outfile="${HOME:?WHY IS THE HOME VARIABLE NOT SET WHAT THE FUCK}/${file#*$PWD/}"
+    filename="${file#*$PWD}"
+    outfile=$(echo "${HOME:?WHY IS THE HOME VARIABLE NOT SET WHAT THE FUCK}/$filename" | tr -s /)
+    [ "${outfile%/}" = "$HOME" ] && die "Something went wrong and $file was translated to $HOME"
     if [ -e "$outfile" ]; then
       if [ -n "$_override" ]; then
         echo "$outfile exists. Deleting since override command was used"
