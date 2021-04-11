@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/bin/sh
+set -e
 
-if pgrep xcompmgr &>/dev/null; then
-		notify-send "Xcompmgr" "Turning xcompmgr OFF"
+if pgrep xcompmgr >/dev/null; then
 		pkill xcompmgr &
+		notify-send "Xcompmgr" "Stopped xcompmgr"
 else
-		notify-send "Xcompmgr" "Turning xcompmgr ON"
 		xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+		notify-send "Xcompmgr" "Started xcompgr"
 fi
 
 
