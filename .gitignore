@@ -1,3 +1,5 @@
 .config/nvim/plugged/
+.config/flameshot
+.config/gtk-3.0/bookmarks
 .config/pulse/cookie
 credentials.zsh
