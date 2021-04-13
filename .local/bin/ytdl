@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+url="$1"
+
+if [ "$url" = "-m" ]; then
+  shift
+  YTDL_IS_MUSIC=1
+  url="$1"
+fi
+
+[ -z "$url" ] && { echo "Usage: $0 [-m] <URL> [FILE_NAME | FILE_PATH]"; exit; }
+
+case "$2" in
+  /*)
+    outfile="$2" ;;
+  *) 
+    folder=/media/Storage/Videos; 
+    [ -n "$YTDL_IS_MUSIC" ] && folder=/media/Storage/Music; 
+    outfile="${folder}/youtube-dl/${2:-%(title)s}.%(ext)s" ;;
+esac
+
+if [ -n "$YTDL_IS_MUSIC" ]; then
+  youtube-dl -f bestaudio "$url" -o "$outfile"
+else
+  youtube-dl "$url" -o "$outfile"
+fi
