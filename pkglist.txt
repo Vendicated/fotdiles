@@ -58,7 +58,6 @@ gparted
 groff
 grub
 gti
-guilded
 htop
 hunspell-de
 hunspell-en_gb
