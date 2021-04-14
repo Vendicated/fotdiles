@@ -149,6 +149,7 @@ paru
 patch
 pavucontrol
 picom
+pipewire-pulse
 pixterm
 pkgconf
 pkgfile
@@ -157,9 +158,7 @@ pm2
 polybar
 ponysay
 postgresql
-pulseaudio
 pulseaudio-alsa
-pulseaudio-bluetooth
 pyenv
 python
 python-i3ipc
@@ -216,9 +215,11 @@ wpa_supplicant
 xclip
 xcompmgr
 xdg-user-dirs
+xdotool
 xf86-input-wacom
 xf86-video-amdgpu
 xf86-video-vesa
+xkbset
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
