@@ -21,8 +21,6 @@ set_from_resource $color3 color2 #008b8b
 exec --no-startup-id xrdb $HOME/.config/X11/Xresources
 exec --no-startup-id wal -R
 
-exec --no-startup-id polybar main
-exec --no-startup-id polybar secondary
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xcompmgr
@@ -32,6 +30,8 @@ exec --no-startup-id dunst
 exec --no-startup-id unclutter
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 exec --no-startup-id i3alternate
+
+exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 #
 # Key Binds

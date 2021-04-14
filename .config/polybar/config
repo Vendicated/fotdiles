@@ -82,6 +82,7 @@ inherit = bar/main
 monitor = eDP
 modules-left = i3
 modules-right = date
+tray-position = 
 
 [module/spotify]
 type = custom/script
