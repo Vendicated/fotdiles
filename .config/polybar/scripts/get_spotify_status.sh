@@ -1,4 +1,6 @@
 #!/bin/bash
+# SOURCE:
+# https://github.com/PrayagS/polybar-spotify
 
 # The name of polybar bar which houses the main spotify module and the control modules.
 PARENT_BAR="main"

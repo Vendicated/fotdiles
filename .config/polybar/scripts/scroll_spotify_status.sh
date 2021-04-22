@@ -1,4 +1,6 @@
 #!/bin/bash
+# SOURCE:
+# https://github.com/PrayagS/polybar-spotify
 
 # see man zscroll for documentation of the following parameters
 zscroll -l 75 \
