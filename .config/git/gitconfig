@@ -18,10 +18,11 @@
    cm = commit -m
    cam = commit -am
    dev = !git checkout dev && git pull origin dev
+   forcepush = !git push -f origin \"$(git rev-parse --abbrev-ref HEAD)\"
    master = !git checkout master && git pull origin
    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
    p = push
    st = status
-   syncfork = !git fetch upstream && git checkout master && git merge upstream/master
+   syncfork = !git fetch upstream && git checkout "${1:-master}" && git merge "upstream/${1:-master}"
    unstage = reset --soft HEAD^

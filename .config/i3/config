@@ -72,6 +72,9 @@ bindsym $mod+shift+s exec flatpak run com.spotify.Client
 bindsym $mod+shift+f exec nemo
 bindsym $mod+shift+o exec osu
 
+# For some reason it sometimes doesnt start correctly
+bindsym $mod+shift+p exec $HOME/.config/polybar/launch.sh
+
 bindsym Print exec --no-startup-id flameshot gui
 bindsym ctrl+Print exec --no-startup-id flameshot screen --clipboard
 bindsym shift+Print exec --no-startup-id owoscreenshot

@@ -71,6 +71,24 @@ nnoremap <silent> <C-F> :NERDTreeToggle<CR>     "<C-W><C-w>
 " let g:auto_save = 1
 let g:ale_fix_on_save = 1
 
+" FZF exploring
+
+
+" Search pattern across repository files
+" https://github.com/junegunn/fzf.vim/issues/338#issuecomment-751500234
+function! FzfExplore(...)
+    let inpath = substitute(a:1, "'", '', 'g')
+    if inpath == "" || matchend(inpath, '/') == strlen(inpath)
+        execute "cd" getcwd() . '/' . inpath
+        let cwpath = getcwd() . '/'
+        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1ap', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
+    else
+        let file = getcwd() . '/' . inpath
+        execute "e" file
+    endif
+endfunction
+
+command! -nargs=* FZFExplore call FzfExplore(shellescape(<q-args>))
 
 " Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
