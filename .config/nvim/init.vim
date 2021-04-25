@@ -13,7 +13,6 @@ let g:coc_global_extensions = [
 	\ 'coc-eslint',
 	\ 'coc-json',
 	\ 'coc-lists',
-	\ 'coc-omnisharp',
 	\ 'coc-pairs',
 	\ 'coc-prettier',
 	\ 'coc-pyright',
@@ -36,6 +35,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex'
+
+Plug 'OmniSharp/omnisharp-vim'
 
 call plug#end()
 
@@ -99,11 +100,18 @@ set foldlevel=99
 nnoremap <space> za 
 
 " Use tab for trigger completion with characters ahead and navigate.
+" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+" Navigate with Tab / Shift Tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Make <CR> confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:check_back_space() abort
     let col = col('.') - 1
