@@ -3,3 +3,4 @@
 .config/gtk-3.0/bookmarks
 .config/pulse/cookie
 credentials.zsh
+.config/gtk-2.0/gtkfilechooser.ini
