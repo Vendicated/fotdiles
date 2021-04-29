@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # SOURCE:
 # https://github.com/PrayagS/polybar-spotify
 
@@ -20,10 +20,14 @@ FORMAT="{{ title }} - {{ artist }}"
 
 # Sends $2 as message to all polybar PIDs that are part of $1
 update_hooks() {
+    tmp="$(mktemp)"
+    echo "$1" > "$tmp"
+
     while IFS= read -r id
     do
-        polybar-msg -p "$id" hook spotify-play-pause $2 1>/dev/null 2>&1
-    done < <(echo "$1")
+        polybar-msg -p "$id" hook spotify-play-pause "$2" 1>/dev/null 2>&1
+    done < "$tmp"
+    rm "$tmp"
 }
 
 PLAYERCTL_STATUS=$(playerctl --player=$PLAYER status 2>/dev/null)
@@ -35,7 +39,7 @@ else
     STATUS="No player is running"
 fi
 
-if [ "$1" == "--status" ]; then
+if [ "$1" = "--status" ]; then
     echo "$STATUS"
 else
     if [ "$STATUS" = "Stopped" ]; then

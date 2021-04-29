@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # SOURCE:
 # https://github.com/PrayagS/polybar-spotify
 

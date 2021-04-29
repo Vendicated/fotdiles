@@ -56,6 +56,9 @@ font-0 = fixed:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=11;1
 font-3 = MesloLGS NF:style=Regular:size=12;2.5
+# For spotify status when listening to Asian music
+font-4 = Noto Sans CJK JP:style=Regular
+
 
 modules-left = i3
 modules-center = spotify spotify-prev spotify-play-pause spotify-next
