@@ -26,7 +26,7 @@ curlie
 dash
 dex
 dialog
-discord-canary
+discord-canary-electron-bin
 discount
 dmenu
 dnsmasq
@@ -37,6 +37,8 @@ dotnet-sdk
 dunst
 ebtables
 efibootmgr
+electron10
+electron11
 fakeroot
 feh
 ff2mpv-native-messaging-host-git
@@ -149,8 +151,8 @@ papirus-icon-theme
 paru
 patch
 pavucontrol
+php
 picom
-pipewire-pulse
 pixterm
 pkgconf
 pkgfile
@@ -159,7 +161,9 @@ pm2
 polybar
 ponysay
 postgresql
+pulseaudio
 pulseaudio-alsa
+pulseaudio-bluetooth
 pyenv
 python
 python-i3ipc

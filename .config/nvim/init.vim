@@ -25,6 +25,7 @@ let g:coc_global_extensions = [
 \ ]
 
 Plug 'dense-analysis/ale' " Used for linting
+Plug 'Shougo/echodoc.vim' " Echo function doc
 
 Plug 'metakirby5/codi.vim' " Live scratchpad
 Plug 'sheerun/vim-polyglot'
@@ -54,6 +55,7 @@ set tabstop=4 softtabstop=2 expandtab shiftwidth=2 smarttab
 set number wrap relativenumber
 set signcolumn="yes"
 set mouse=a " Yes, really.
+set noshowmode
 
 filetype plugin on
 syntax enable
@@ -72,8 +74,8 @@ nnoremap <silent> <C-F> :NERDTreeToggle<CR>     "<C-W><C-w>
 " let g:auto_save = 1
 let g:ale_fix_on_save = 1
 
-" FZF exploring
-
+" let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
 
 " Search pattern across repository files
 " https://github.com/junegunn/fzf.vim/issues/338#issuecomment-751500234
@@ -163,3 +165,30 @@ endfunction
 
 noremap <silent> <C-c> :call CopyToClipBoard()<CR> 
 noremap <silent> <C-v> :r !xclip -o -selection clipboard<CR>
+
+" Omnisharp
+
+" OmniSharp: {{{
+let g:OmniSharp_popup_position = 'peek'
+if has('nvim')
+  let g:OmniSharp_popup_options = {
+  \ 'winhl': 'Normal:NormalFloat'
+  \}
+else
+  let g:OmniSharp_popup_options = {
+  \ 'highlight': 'Normal',
+  \ 'padding': [0, 0, 0, 0],
+  \ 'border': [1]
+  \}
+endif
+let g:OmniSharp_popup_mappings = {
+\ 'sigNext': '<C-n>',
+\ 'sigPrev': '<C-p>',
+\ 'pageDown': ['<C-f>', '<PageDown>'],
+\ 'pageUp': ['<C-b>', '<PageUp>']
+\}
+
+let g:OmniSharp_highlight_groups = {
+\ 'ExcludedCode': 'NonText'
+\}
+" }}}

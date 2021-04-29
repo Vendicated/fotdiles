@@ -32,10 +32,10 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   startx
 else
   (cat ~/.cache/wal/sequences &)
-
-  echo "\033[33m---\033[0m"
-  cmd=$(echo "cowsay\nponysay" | shuf -n 1)
-  fortune -a | eval $cmd
-  echo "\033[33m---\033[0m"
+#
+  # echo "\033[33m---\033[0m"
+  # cmd=$(echo "cowsay\nponysay" | shuf -n 1)
+  # fortune -a | eval $cmd
+  # echo "\033[33m---\033[0m"
 fi
 
