@@ -27,9 +27,11 @@ link_all() {
 install_dotfiles() {
   mkdir -p "$HOME/.config"
   mkdir -p "$HOME/.local/bin"
+  mkdir -p "$HOME/.cronscripts"
 
   link_all "$PWD/.config" "$HOME"
   link_all "$PWD/.local/bin" "$HOME"
+  link_all "$PWD/.cronscripts" "$HOME"
 }
 
 check_dir() {
