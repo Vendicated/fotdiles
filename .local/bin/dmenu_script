@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import subprocess
 
-paths = [ "/usr/share", "~/.local/share", "/var/lib/flatpak/exports/share", "~/.local/share/flatpak/exports/share" ]
+paths = [ "/usr", "~/.local", "/var/lib/flatpak/exports", "~/.local/share/flatpak/exports" ]
 exclude_fields = ["NoDisplay", "Hidden"]
 
 colors = None
@@ -16,13 +16,12 @@ if json_path.exists():
 
 def get_field_value(content: str, field: str, eof: str = "\n"):
     match = re.search(f"{field}=([^{eof}]+)", content)
-
     return match and match.group(1)
 
 desktop_files = {}
 
 for path in paths:
-    app_dir = (Path(path) / "applications").expanduser()
+    app_dir = (Path(path) / "share" / "applications").expanduser()
     if not app_dir.exists():
         continue
 
@@ -38,7 +37,7 @@ for path in paths:
 
 file_names = sorted(desktop_files.keys(), key=str.casefold)
 
-command = 'echo -e "' + "\\n".join(file_names) + '" | dmenu -i'
+command = 'echo "' + "\\n".join(file_names) + '" | dmenu -i'
 
 if colors:
     fg = colors["color0"]

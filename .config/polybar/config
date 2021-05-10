@@ -84,7 +84,7 @@ cursor-scroll = ns-resize
 inherit = bar/main
 monitor = eDP
 modules-left = i3
-modules-right = date
+modules-right = date battery powermenu
 tray-position = 
 
 [module/spotify]

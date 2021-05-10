@@ -7,7 +7,7 @@ if [ ! -t 0 ]; then
 elif [ -f "$1" ]; then
   $clip < "$1"
 elif [ -n "$1" ]; then
-  echo "$*" | $clip
+  echo -n "$*" | $clip
 else
 	echo "Usage: $0 [TEXT | FILE | PIPE]"
 fi

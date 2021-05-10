@@ -3,7 +3,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias lolcat="lolcat --truecolor"
 alias shutdown="shutdown now"
-alias rg="rg --no-ignore --hidden"
+alias rg="rg --hidden -i"
 alias yay="echo 'USE PARU IDIOT' && paru"
 alias pin="paru -S"
 alias pun="paru -Rns"
@@ -13,7 +13,7 @@ alias src="source $HOME/.zshrc"
 owo() {
   local output=$(command owo $*)
   if [ $? -eq 0 ] && [ -n "$output" ]; then
-    xclip -selection clipboard <<< "$output" && \
+    toclip <<< "$output" && \
       notify-send -i $HOME/.local/share/icons/owo.png "OwO" "Copied url to clipboard!"
   fi
 }

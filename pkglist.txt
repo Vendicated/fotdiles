@@ -16,9 +16,10 @@ bison
 blueman
 bluez
 bluez-utils
-brave-bin
+burpsuite
 cantata
 checkbashisms
+chromium
 cmake
 cowsay
 cronie
@@ -26,6 +27,7 @@ curlie
 dash
 dex
 dialog
+discord
 discord-canary-electron-bin
 discount
 dmenu
@@ -37,7 +39,6 @@ dotnet-sdk
 dunst
 ebtables
 efibootmgr
-electron10
 electron11
 fakeroot
 feh
@@ -72,6 +73,7 @@ ipython
 jdk-openjdk
 jq
 keepassxc
+kitty
 lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
@@ -100,6 +102,7 @@ linux-headers
 linux-zen
 linux-zen-headers
 lolcat
+ltrace
 lua
 lxappearance-gtk3
 lynx
@@ -120,6 +123,7 @@ mingw-w64-headers
 mingw-w64-winpthreads
 mirage
 mlocate
+mono
 mpc
 mpd
 mpg123
@@ -143,9 +147,9 @@ nvm
 obs-studio
 ocl-icd
 openal
-opentabletdriver-git
 openvpn
 os-prober
+p7zip
 pacutils
 papirus-icon-theme
 paru
@@ -153,6 +157,7 @@ patch
 pavucontrol
 php
 picom
+pipewire-pulse
 pixterm
 pkgconf
 pkgfile
@@ -161,9 +166,7 @@ pm2
 polybar
 ponysay
 postgresql
-pulseaudio
 pulseaudio-alsa
-pulseaudio-bluetooth
 pyenv
 python
 python-i3ipc
@@ -185,6 +188,9 @@ siji
 sl
 slop
 speedtest-cli
+spicetify-cli
+spicetify-themes-git
+sqlmap
 steam
 stow
 sudo
@@ -206,6 +212,7 @@ unrar
 unzip
 uwu
 vim
+virt-manager
 visual-studio-code-bin
 volumeicon
 vulkan-radeon
@@ -275,6 +282,7 @@ xss-lock
 xwallpaper
 yarn
 youtube-dl
+zenbooru
 zip
 zscroll-git
 zsh
