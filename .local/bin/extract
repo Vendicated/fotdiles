@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 TARGET="${2:-.}"
 SCRIPTNAME="${0##*/}"
@@ -9,12 +10,13 @@ err() {
 }
 
 test -n "$1" || { printf >&2 "Usage: %s [ARCHIVE] [OUT_DIR]\n" "$SCRIPTNAME"; exit; }
-test -f "$1" || err "'$1' does not exist"
+test -f "$1" || err "'$1' is not a file or does not exist"
 
 ARC="$(readlink -f "$1")"
 
 test -z "$TARGET" && TARGET="$DEFAULT_TARGET"
 test -e "$TARGET" || mkdir -p "$TARGET"
+test -d "$TARGET" || err "'$TARGET' is not a directory"
 test -w "$TARGET" || err "Permission denied: '$TARGET' is not writable"
 
 cd "$TARGET" || exit
