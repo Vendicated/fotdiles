@@ -3,7 +3,13 @@ set -e
 
 notify="notify-send -a Dunst -t 2000"
 
-if [ "$(dunstctl is-paused)" = "false" ]; then
+if [ "$1" = "off" ]; then
+	dunstctl set-paused true
+	echo "Disabled notifications"
+elif [ "$1" = "on" ]; then
+	dunstctl set-paused false
+	echo "Enabled notifications"
+elif [ "$(dunstctl is-paused)" = "false" ]; then
 	$notify -u critical "Dunst" "Disabled Notifications"
 	sleep 2.1
 	dunstctl set-paused true

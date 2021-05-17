@@ -1,6 +1,7 @@
 acpi
 airshipper
 alacritty
+alsa-tools
 alsa-utils
 amd-ucode
 android-tools
@@ -27,8 +28,6 @@ curlie
 dash
 dex
 dialog
-discord
-discord-canary-electron-bin
 discount
 dmenu
 dnsmasq
@@ -39,13 +38,13 @@ dotnet-sdk
 dunst
 ebtables
 efibootmgr
-electron11
 fakeroot
 feh
 ff2mpv-native-messaging-host-git
 ffmpegthumbnailer
 ffmpegthumbs
 file-roller
+firecamp
 firefox
 firewalld
 flameshot
@@ -55,6 +54,7 @@ fortune-mod
 fzf
 gcc
 gdb
+gendesk
 gimp
 git
 gnome-keyring
@@ -147,6 +147,7 @@ nvm
 obs-studio
 ocl-icd
 openal
+opendoas
 openvpn
 os-prober
 p7zip
@@ -167,6 +168,7 @@ polybar
 ponysay
 postgresql
 pulseaudio-alsa
+pulseeffects
 pyenv
 python
 python-i3ipc
@@ -190,6 +192,7 @@ slop
 speedtest-cli
 spicetify-cli
 spicetify-themes-git
+spotify
 sqlmap
 steam
 stow

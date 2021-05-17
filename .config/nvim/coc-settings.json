@@ -2,7 +2,7 @@
   "diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
-    // "javascript",
+    "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",

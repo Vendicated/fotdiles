@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 alias vimdiff="nvim -d"
 alias vim="nvim"
 alias vi="nvim"
@@ -9,6 +10,17 @@ alias pin="paru -S"
 alias pun="paru -Rns"
 alias pup="paru -Syu"
 alias src="source $HOME/.zshrc"
+
+mkcd() {
+  mkdir "$1" && cd "$1"
+}
+
+installtheme() {
+  (cd $HOME/.local/share/powercord/src/Powercord/themes && git clone $1)
+}
+installplugin() {
+  (cd $HOME/.local/share/powercord/src/Powercord/plugins && git clone $1)
+}
 
 owo() {
   local output=$(command owo $*)

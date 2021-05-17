@@ -6,9 +6,12 @@ export STAGING_AUDIO_PERIOD=40000
 export PATH=/opt/wine-osu/bin:$PATH
 export locale=ja_JP
 
-preparetablet
+cd ~/osu!
 
-cd ~/osu! || exit
+preparetablet
+togglenotifications off
+trap "togglenotifications on" EXIT
+
 wine winediscordipcbridge.exe &
 wine explorer /desktop=osu\!,1680x1050 osu!.exe "$@"
 
