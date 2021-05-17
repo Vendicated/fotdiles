@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# superseded by https://github.com/Vendicated/rust_bin/blob/main/dmenu_launch/src/main.rs
 
 from pathlib import Path
 import re
@@ -32,8 +33,7 @@ for path in paths:
             continue
 
         name = get_field_value(content, "Name") or file.name
-        is_flatpak = "X-Flatpak" in content
-        desktop_files[name] = { "name": file.stem, "is_flatpak": is_flatpak }
+        desktop_files[name] = { "name": file.stem, "is_flatpak": "X-Flatpak" in content }
 
 file_names = sorted(desktop_files.keys(), key=str.casefold)
 
@@ -46,14 +46,16 @@ if colors:
 
 choice = subprocess.getoutput(command)
 
+cmd = ["/usr/bin/i3-msg", "exec"]
 if choice:
     if choice in desktop_files:
         app = desktop_files[choice]
         if app["is_flatpak"]:
-            subprocess.run([ "/usr/bin/i3-msg", "exec", "flatpak", "run", app["name"]])
+            cmd += (["flatpak", "run", app["name"]])
         else:
-            subprocess.run(["/usr/bin/i3-msg", "exec", "gtk-launch", app["name"]])
+            cmd += ["gtk-launch", app["name"]]
     else:
-        subprocess.run([ "/usr/bin/i3-msg", "exec", choice ])
+        cmd.append(choice)
+    subprocess.run(cmd)
 else:
     print("Successfully cancelled!")
