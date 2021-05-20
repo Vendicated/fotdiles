@@ -25,6 +25,7 @@ cmake
 cowsay
 cronie
 curlie
+czkawka-git
 dash
 dex
 dialog
@@ -107,6 +108,7 @@ lua
 lxappearance-gtk3
 lynx
 m4
+maim
 make
 makefontpkg
 man-db
@@ -192,7 +194,6 @@ slop
 speedtest-cli
 spicetify-cli
 spicetify-themes-git
-spotify
 sqlmap
 steam
 stow
@@ -282,6 +283,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 xss-lock
+xterm
 xwallpaper
 yarn
 youtube-dl
