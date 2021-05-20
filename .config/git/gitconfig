@@ -1,9 +1,13 @@
 [user]
 	email = vendicated@riseup.net
 	name = Vendicated
+	signingkey = EC781ADFB93EFFA3
+
+[commit]
+	gpgsign = true
 
 [pull]
-   rebase = false
+   rebase = true
 
 [core]
    excludesfile = /home/ven/.config/git/gitignore_global
@@ -26,3 +30,4 @@
    st = status
    syncfork = !git fetch upstream && git checkout "${1:-master}" && git merge "upstream/${1:-master}"
    unstage = reset --soft HEAD^
+
