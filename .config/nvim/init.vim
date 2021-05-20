@@ -38,6 +38,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'lervag/vimtex'
 
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -73,6 +74,7 @@ nnoremap <silent> <C-F> :NERDTreeToggle<CR>     "<C-W><C-w>
 " Enable Auto Save
 " let g:auto_save = 1
 let g:ale_fix_on_save = 1
+let g:rustfmt_autosave = 1
 
 " let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
