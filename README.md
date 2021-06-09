@@ -1,7 +1,7 @@
 # My dots
 
 ```bash
-git clone --recurse-submodules git@github.com:Vendicated/dotfiles.git
+git clone --recurse-submodules git@github.com:Vendicated/fotdiles.git
 cd dotfiles
 
 # Install all packages
