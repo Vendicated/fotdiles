@@ -4,6 +4,8 @@ alacritty
 alsa-tools
 alsa-utils
 amd-ucode
+android-apktool
+android-studio-canary
 android-tools
 android-udev
 arc-gtk-theme
@@ -14,6 +16,7 @@ base
 bat
 binutils
 bison
+bless
 blueman
 bluez
 bluez-utils
@@ -25,10 +28,12 @@ cmake
 cowsay
 cronie
 curlie
-czkawka-git
 dash
 dex
+dex2jar
 dialog
+discord
+discord-canary
 discount
 dmenu
 dnsmasq
@@ -39,6 +44,8 @@ dotnet-sdk
 dunst
 ebtables
 efibootmgr
+electron
+emscripten
 fakeroot
 feh
 ff2mpv-native-messaging-host-git
@@ -56,6 +63,7 @@ fzf
 gcc
 gdb
 gendesk
+ghidra
 gimp
 git
 gnome-keyring
@@ -63,6 +71,8 @@ gparted
 groff
 grub
 gti
+guilded
+handbrake
 htop
 hunspell-de
 hunspell-en_gb
@@ -71,8 +81,10 @@ i3blocks
 i3lock
 i3status
 ipython
+jadx
 jdk-openjdk
 jq
+kdenlive
 keepassxc
 kitty
 lib32-giflib
@@ -105,6 +117,7 @@ linux-zen-headers
 lolcat
 ltrace
 lua
+luyten
 lxappearance-gtk3
 lynx
 m4
@@ -153,6 +166,7 @@ opendoas
 openvpn
 os-prober
 p7zip
+p7zip-gui
 pacutils
 papirus-icon-theme
 paru
@@ -169,6 +183,7 @@ pm2
 polybar
 ponysay
 postgresql
+protonvpn-linux-gui
 pulseaudio-alsa
 pulseeffects
 pyenv
@@ -195,6 +210,7 @@ speedtest-cli
 spicetify-cli
 spicetify-themes-git
 sqlmap
+st
 steam
 stow
 sudo
@@ -202,6 +218,7 @@ sxiv
 telegram-desktop
 texinfo
 texlive-core
+thefuck
 thunderbird
 toilet
 tree

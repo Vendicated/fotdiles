@@ -1,5 +1,11 @@
 nvm() {
   unfunction nvm
   . /usr/share/nvm/init-nvm.sh
-  nvm $@
+  nvm "$@"
+}
+
+fuck() {
+  unfunction fuck
+  eval $(thefuck --alias)
+  fuck "$@"
 }

@@ -69,7 +69,8 @@ bindsym --whole-window --border $mod+Button5 workspace next
 
 bindsym $mod+d exec --no-startup-id dmenu_launch
 bindsym $mod+shift+b exec flatpak run com.github.Eloston.UngoogledChromium # $BROWSER
-bindsym $mod+shift+d exec flatpak run com.discordapp.DiscordCanary
+# bindsym $mod+shift+d exec flatpak run com.discordapp.DiscordCanary
+bindsym $mod+shift+d exec discord-canary
 bindsym $mod+shift+s exec flatpak run com.spotify.Client
 bindsym $mod+shift+f exec nemo
 bindsym $mod+shift+o exec osu

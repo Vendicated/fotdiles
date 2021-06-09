@@ -7,5 +7,5 @@ do
   sleep 1
 done
 
-polybar main > .cache/polybar.log &
-polybar secondary > .cache/polybar2.log &
+polybar main &
+polybar secondary &

@@ -13,6 +13,6 @@ data="$(flameshot $arg --raw | base64)"
 echo "$data" \
 	| base64 -d  \
 	| owo -n _.png -t image/png - \
-	| toclip
+	| xclip -selection clipboard -r
 
 notify-send -i "$HOME/.local/share/icons/owo.png" OwO "Copied to clipboard"

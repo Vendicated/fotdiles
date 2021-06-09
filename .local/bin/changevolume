@@ -13,11 +13,8 @@ else
     pactl set-sink-volume @DEFAULT_SINK@ "$@" 
 fi
 
-volume="$(LC_ALL=C pactl list sinks | \
-    grep '^[[:space:]]Volume:' | \
-    head -n 1 | \
-    sed -e 's,.* \([0-9][0-9]*\)%.*,\1,' \
-)"
+volume="$(amixer -c 1 -M -D pulse get Master | grep -o -E "[[:digit:]]+%" | head -n 1)"
+volume="${volume%?}"
 
 if [ "$volume" -gt 66 ]; then
     icon=audio-volume-high

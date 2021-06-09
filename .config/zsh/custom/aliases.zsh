@@ -11,8 +11,15 @@ alias pun="paru -Rns"
 alias pup="paru -Syu"
 alias src="source $HOME/.zshrc"
 
+ghc() { git clone "git@github.com:${1:?gib user retard}/${2:?Gib repo retard}" $3 }
+
 mkcd() {
   mkdir "$1" && cd "$1"
+}
+
+ctxgrep() {
+  i="${2:-10}"
+  rg -o ".{0,$i}${1:?You didnt give me anything to grep for lol}.{0,$i}"
 }
 
 owo() {
