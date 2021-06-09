@@ -30,7 +30,6 @@ cronie
 curlie
 dash
 dex
-dex2jar
 dialog
 discord
 discord-canary
@@ -44,8 +43,6 @@ dotnet-sdk
 dunst
 ebtables
 efibootmgr
-electron
-emscripten
 fakeroot
 feh
 ff2mpv-native-messaging-host-git
@@ -117,7 +114,6 @@ linux-zen-headers
 lolcat
 ltrace
 lua
-luyten
 lxappearance-gtk3
 lynx
 m4
@@ -210,7 +206,6 @@ speedtest-cli
 spicetify-cli
 spicetify-themes-git
 sqlmap
-st
 steam
 stow
 sudo
