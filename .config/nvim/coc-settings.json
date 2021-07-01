@@ -2,8 +2,8 @@
   "diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
-    "javascript",
-    "javascriptreact",
+    // "javascript",
+    // "javascriptreact",
     "typescript",
     "typescriptreact",
     "markdown",
@@ -19,14 +19,12 @@
     "nvim",
     "vendicated"
   ],
-  "rpc.enabled": true,
+  "rpc.enabled": false,
   "rpc.lowerDetailsEditing": "{workspace}",
   "rpc.lowerDetailsViewing": "{workspace}",
   "rpc.detailsViewing": "Viewing {filename}",
   "rpc.detailsEditing": "Editing {filename}",
   "rpc.lowerDetailsNotFound": "No workspace",
-  "rpc.workspaceText": "In workspace {workspace}",
   "rpc.problemsText": "{count} problems found",
-  "rpc.workspaceElapsedTime": true,
-  "clangd.path": "/home/ven/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
+  "rpc.workspaceElapsedTime": true
 }

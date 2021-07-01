@@ -3,7 +3,7 @@ set -e
 
 RES="${RES:-1680x1050}"
 export WINEPREFIX="$HOME/.wine_osu"
-export STAGING_AUDIO_PERIOD=45000
+export STAGING_AUDIO_PERIOD=60000
 export PATH=/opt/wine-osu/bin:$PATH
 export locale=ja_JP
 

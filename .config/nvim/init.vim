@@ -1,27 +1,27 @@
 let g:ale_disable_lsp = 1
 
 call plug#begin()
-Plug 'joshdick/onedark.vim'	  " OneDarkPro Theme
+Plug 'joshdick/onedark.vim'   " OneDarkPro Theme
 Plug 'dylanaraps/wal.vim'     " Theme based on pywal scheme
-Plug 'ryanoasis/vim-devicons'	  " File Icons
-Plug 'vim-airline/vim-airline'	  " Status Bar
+Plug 'ryanoasis/vim-devicons'     " File Icons
+Plug 'vim-airline/vim-airline'    " Status Bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-discord-rpc',
-	\ 'coc-eslint',
-	\ 'coc-json',
-	\ 'coc-lists',
-	\ 'coc-pairs',
-	\ 'coc-prettier',
-	\ 'coc-pyright',
-	\ 'coc-sh',
-	\ 'coc-snippets',
-	\ 'coc-spell-checker',
-	\ 'coc-tsserver',
-	\ 'coc-vimlsp',
-	\ 'coc-yaml',
+    \ 'coc-eslint',
+    \ 'coc-json',
+    \ 'coc-lists',
+    \ 'coc-pairs',
+    \ 'coc-prettier',
+    \ 'coc-pyright',
+    \ 'coc-sh',
+    \ 'coc-snippets',
+    \ 'coc-spell-checker',
+    \ 'coc-tsserver',
+    \ 'coc-vimlsp',
+    \ 'coc-yaml',
 \ ]
 
 Plug 'dense-analysis/ale' " Used for linting
@@ -29,8 +29,8 @@ Plug 'Shougo/echodoc.vim' " Echo function doc
 
 Plug 'metakirby5/codi.vim' " Live scratchpad
 Plug 'sheerun/vim-polyglot'
-" Plug '907th/vim-auto-save' 	  " Auto save files
-Plug 'preservim/nerdtree'  	  " File Explorer
+" Plug '907th/vim-auto-save'      " Auto save files
+Plug 'preservim/nerdtree'     " File Explorer
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 

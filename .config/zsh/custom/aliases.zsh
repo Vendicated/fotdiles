@@ -2,14 +2,16 @@
 alias vimdiff="nvim -d"
 alias vim="nvim"
 alias vi="nvim"
+alias rmrf="rm -rf"
 alias lolcat="lolcat --truecolor"
 alias shutdown="shutdown now"
 alias rg="rg --hidden -i"
+alias rgf="rg --files | rg --hidden -i"
 alias yay="echo 'USE PARU IDIOT' && paru"
 alias pin="paru -S"
 alias pun="paru -Rns"
 alias pup="paru -Syu"
-alias src="source $HOME/.zshrc"
+alias py="python3"
 
 ghc() { git clone "git@github.com:${1:?gib user retard}/${2:?Gib repo retard}" $3 }
 

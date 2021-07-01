@@ -21,6 +21,7 @@ set_from_resource $color3 color2 #008b8b
 exec --no-startup-id xrdb $HOME/.config/X11/Xresources
 exec --no-startup-id wal -R
 
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xcompmgr
@@ -52,6 +53,10 @@ bindsym ctrl+Mod1+BackSpace exec shutdown now
 bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id changevolume -5%
 bindsym XF86AudioMute exec --no-startup-id togglemute
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Edit config
 bindsym $mod+Shift+e exec gtk-launch nvim.desktop ~/.config/i3/config

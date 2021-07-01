@@ -14,17 +14,18 @@ automake
 autopep8
 base
 bat
+bind
 binutils
 bison
 bless
 blueman
 bluez
 bluez-utils
-burpsuite
 cantata
 checkbashisms
 chromium
 cmake
+code
 cowsay
 cronie
 curlie
@@ -49,13 +50,13 @@ ff2mpv-native-messaging-host-git
 ffmpegthumbnailer
 ffmpegthumbs
 file-roller
-firecamp
 firefox
 firewalld
 flameshot
 flatpak
 flex
 fortune-mod
+freezer-bin
 fzf
 gcc
 gdb
@@ -64,6 +65,7 @@ ghidra
 gimp
 git
 gnome-keyring
+go
 gparted
 groff
 grub
@@ -77,13 +79,13 @@ i3-gaps
 i3blocks
 i3lock
 i3status
+insomnia-bin
 ipython
 jadx
 jdk-openjdk
 jq
 kdenlive
 keepassxc
-kitty
 lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
@@ -179,7 +181,6 @@ pm2
 polybar
 ponysay
 postgresql
-protonvpn-linux-gui
 pulseaudio-alsa
 pulseeffects
 pyenv
@@ -198,6 +199,7 @@ ripgrep
 rustup
 samba
 screenkey
+sex
 shellcheck
 siji
 sl
@@ -214,6 +216,7 @@ telegram-desktop
 texinfo
 texlive-core
 thefuck
+thunar
 thunderbird
 toilet
 tree
@@ -229,7 +232,6 @@ unzip
 uwu
 vim
 virt-manager
-visual-studio-code-bin
 volumeicon
 vulkan-radeon
 wget
@@ -303,3 +305,4 @@ zenbooru
 zip
 zscroll-git
 zsh
+zsh-completions
