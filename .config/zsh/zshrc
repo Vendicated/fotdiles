@@ -30,7 +30,10 @@ eval "$(dircolors -p | sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 
 
 # Automatically start X at login
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  startx
+  echo "i3 (1) or xfce (2)?"
+  read -r -k1 desktop
+  [ "$desktop" = "1" ] && startx
+  [ "$desktop" = "2" ] && startxfce4
 else
   (cat ~/.cache/wal/sequences &)
 #

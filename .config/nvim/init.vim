@@ -9,7 +9,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim' , { 'branch' : 'release' }
 let g:coc_global_extensions = [
     \ 'coc-clangd',
-    \ 'coc-discord-rpc',
     \ 'coc-eslint',
     \ 'coc-json',
     \ 'coc-lists',

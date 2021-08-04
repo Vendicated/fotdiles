@@ -9,7 +9,7 @@ export locale=ja_JP
 
 cd ~/osu!
 
-preparetablet
+# preparetablet
 togglenotifications off
 trap "togglenotifications on" EXIT
 

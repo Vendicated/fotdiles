@@ -94,6 +94,9 @@ bindsym $mod+shift+m exec --no-startup-id togglenotifications
 
 bindsym $mod+Delete exec --no-startup-id loginctl lock-session
 
+# Copy ZWSP to clipboard
+bindsym $mod+shift+z exec --no-startup-id ZWSP
+
 # Disable Window titles
 for_window [class=".*"] border pixel 0
 

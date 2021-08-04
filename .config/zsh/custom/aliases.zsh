@@ -12,6 +12,13 @@ alias pin="paru -S"
 alias pun="paru -Rns"
 alias pup="paru -Syu"
 alias py="python3"
+alias webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
+
+adb() {
+  # try to connect if no device connected
+  [ $(command adb devices | wc -l) -gt 2 ] || command adb connect 192.168.178.21:5555
+  command adb "$@"
+}
 
 ghc() { git clone "git@github.com:${1:?gib user retard}/${2:?Gib repo retard}" $3 }
 

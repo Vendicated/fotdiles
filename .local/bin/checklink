@@ -1,0 +1,17 @@
+#!/bin/sh
+
+url=${1:?Please specify an url}
+
+curl https://www.virustotal.com/ui/search \
+    -sS \
+    --get \
+    --data-urlencode "limit=20" \
+    --data-urlencode "relationships[comment]=author,item" \
+    --data-urlencode "query=$url" \
+    -H "Content-Type: application/json" \
+    -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:83.0) Firefox' \
+    -H 'X-Tool: vt-ui-main' \
+    -H "X-VT-Anti-Abuse-Header: uwu" \
+    -H 'Accept-Ianguage: en-US,en;q=0.9,es;q=0.8' \
+    | jq -r '.data[0].attributes.last_analysis_results | to_entries | sort_by(.value.result) | .[] | [.key, .value.result] | @tsv' \
+    | column -ts "$(printf '\t')"

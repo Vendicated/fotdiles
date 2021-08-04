@@ -6,4 +6,4 @@ TABLET_ID="$(xsetwacom list | grep -Eo "id: ([[:digit:]]+)[[:space:]]type: STYLU
 xsetwacom set "$TABLET_ID" Suppress 0
 xsetwacom set "$TABLET_ID" RawSample 1
 xsetwacom set "$TABLET_ID" MapToOutput 1680x1050+1920+0
-xsetwacom set "$TABLET_ID" Area 828 717 7972 5182
+xsetwacom set "$TABLET_ID" Area 396 447 7972 5182
