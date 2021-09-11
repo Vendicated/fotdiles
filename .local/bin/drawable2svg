@@ -1,4 +1,8 @@
 #!/usr/bin/env python2
+
+# found on https://gitlab.com/AlessandroLucchet/VectorDrawable2Svg
+# manually patched with https://gitlab.com/AlessandroLucchet/VectorDrawable2Svg/-/merge_requests/1 and https://gitlab.com/AlessandroLucchet/VectorDrawable2Svg/-/merge_requests/3
+
 """
 VectorDrawable2Svg
 This script convert your VectorDrawable to a Svg
@@ -60,8 +64,10 @@ def convertVd(vdFilePath):
 		svgGroup = svgXml.createElement('g')
 		
 		# setup attributes of the group
-		if vdGroup.hasAttribute('android:translateX'):
-			svgGroup.attributes['transform'] = 'translate({},{})'.format(vdGroup.attributes['android:translateX'].value,vdGroup.attributes['android:translateY'].value)
+		if vdGroup.hasAttribute('android:translateX') or vdGroup.hasAttribute('android:translateY'):
+			svgGroup.attributes['transform'] = 'translate({},{})'.format(
+				vdGroup.attributes['android:translateX'].value if vdGroup.hasAttribute('android:translateX') else 0,
+				vdGroup.attributes['android:translateY'].value if vdGroup.hasAttribute('android:translateY') else 0)
 		
 		# iterate through all paths inside the group
 		convertPaths(vdGroup,svgGroup,svgXml)
@@ -73,7 +79,7 @@ def convertVd(vdFilePath):
 	convertPaths(vdNode,svgNode,svgXml)
 
 	# write xml to file
-	svgXml.writexml(open(vdFilePath + '.svg', 'w'),indent="",addindent="  ",newl='\n')
+	svgXml.writexml(open(vdFilePath[:-4] + '.svg', 'w'),indent="",addindent="  ",newl='\n')
 	
 # script begin
 if len(sys.argv)>1:
@@ -84,4 +90,3 @@ if len(sys.argv)>1:
 else:
 	print("You have to pass me something")
 	sys.exit()
-
