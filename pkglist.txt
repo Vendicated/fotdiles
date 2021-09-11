@@ -5,7 +5,7 @@ alsa-utils
 amd-ucode
 android-apktool
 android-file-transfer
-android-studio-canary
+android-studio
 android-tools
 android-udev
 arc-gtk-theme
@@ -62,20 +62,20 @@ firewalld
 flameshot
 flatpak
 flex
-flutter
 fortune-mod
 fzf
 garcon
 gcc
 gdb
 gendesk
-ghidra
 gimp
 git
 github-cli
+gnome-bluetooth
 gnome-keyring
 gnome-terminal
 go
+goland-jre
 gparted
 groff
 grub
@@ -96,6 +96,8 @@ jdk-openjdk
 jq
 kdenlive
 keepassxc
+ki-shell-bin
+kotlin
 lib32-giflib
 lib32-gnutls
 lib32-gst-plugins-base-libs
@@ -197,6 +199,7 @@ pm2
 polybar
 ponysay
 postgresql
+protonvpn-gui
 pulseaudio-alsa
 pyenv
 pypy3
@@ -210,9 +213,11 @@ qemu
 qt5-tools
 ranger
 reflector
+rider
 ripgrep
 rustup
 samba
+scrcpy
 screenkey
 scrot
 sex
@@ -247,6 +252,7 @@ ttf-twemoji
 tumbler
 tuxi-git
 unclutter
+unityhub
 unrar
 unzip
 uwu
@@ -255,6 +261,8 @@ virt-manager
 vlc
 volumeicon
 vulkan-radeon
+webstorm
+webstorm-jre
 wget
 which
 whois

@@ -16,7 +16,7 @@ alias webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
 
 adb() {
   # try to connect if no device connected
-  [ $(command adb devices | wc -l) -gt 2 ] || command adb connect 192.168.178.21:5555
+  [ $(command adb devices | wc -l) -gt 2 ] || command adb connect 192.168.2.118:5555
   command adb "$@"
 }
 
