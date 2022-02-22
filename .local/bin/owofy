@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sed -r "s/[lr]/w/g; s/[LR]/W/g; s/(u+)/\1wu/g; s/ove/uv/g; s/(n)([aeiouöüä])/\1y\2/gi"

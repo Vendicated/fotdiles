@@ -1,0 +1,5 @@
+#!/bin/sh
+
+curl -sSf "https://api.github.com/users/${1:?Usage: $0 <username>}/events/public" \
+  | jq -r "map(.payload.commits[0].author.email | select(. != null)) | first"
+

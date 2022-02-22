@@ -6,6 +6,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 HIST_STAMPS="dd/mm/yyyy"
 DISABLE_UPDATE_PROMPT="true"
 
+PROMPT_EOL_MARK=""
+
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.config/zsh/custom
 
@@ -16,9 +18,9 @@ plugins=(
   node
   sudo
   yarn
-  zsh_reload
   zsh-syntax-highlighting
   zsh-autosuggestions
+  zsh-z
 )
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -32,10 +34,12 @@ eval "$(dircolors -p | sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   echo "i3 (1) or xfce (2)?"
   read -r -k1 desktop
-  [ "$desktop" = "1" ] && startx
-  [ "$desktop" = "2" ] && startxfce4
+  case "$desktop" in
+    1) startx ;;
+    2) startxfce4 ;;
+  esac 
 else
-  (cat ~/.cache/wal/sequences &)
+  # (cat ~/.cache/wal/sequences &)
 #
   # echo "\033[33m---\033[0m"
   # cmd=$(echo "cowsay\nponysay" | shuf -n 1)

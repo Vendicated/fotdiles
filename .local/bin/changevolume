@@ -2,7 +2,7 @@
 set -e
 
 # Unique message id so notifications get replaced
-msgId="69420"
+msgId="$(cat /tmp/notify-send-id || echo "0")"
 
 is_muted="$(LC_ALL=C pactl list sinks | { grep -s '^[[:space:]]Mute: yes' || true; })"
 
@@ -25,6 +25,6 @@ else
 fi
 
 dunstify -a "changeVolume" -u low -i $icon -r "$msgId" \
-    -h int:value:"$volume" "Volume: ${volume}%"
+    -h int:value:"$volume" "Volume: ${volume}%" -p > /tmp/notify-send-id
 
 canberra-gtk-play -i audio-volume-change -d "changeVolume"

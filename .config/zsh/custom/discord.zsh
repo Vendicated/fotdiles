@@ -1,5 +1,8 @@
 if [ -n "$DISCORD_TOKEN" ]
 then
+  discord_invite() {
+    curl -sS https://discord.com/api/invite/$(basename "$1") | jq .
+  }
   discord_get() {
     route="${1:?Please specify a route}"
     curl -sS https://discord.com/api/v9/"$route" -H "authorization: Bot $DISCORD_TOKEN" | jq .

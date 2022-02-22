@@ -4,7 +4,7 @@
 	signingkey = EC781ADFB93EFFA3
 
 [commit]
-	gpgsign = true
+       gpgsign = true
 
 [pull]
    rebase = true

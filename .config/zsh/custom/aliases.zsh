@@ -11,12 +11,26 @@ alias yay="echo 'USE PARU IDIOT' && paru"
 alias pin="paru -S"
 alias pun="paru -Rns"
 alias pup="paru -Syu"
+alias KYSPYTHON="paru -Syu --overwrite *"
 alias py="python3"
 alias webcam="mpv av://v4l2:/dev/video0 --profile=low-latency --untimed"
+alias jadxdef="jadx --show-bad-code --threads-count 4 --no-replace-consts --no-inline-anonymous --no-generate-kotlin-metadata"
+b64() { base64 <<< "$*" }
+alias b64d="base64 -d <<<"
+# guhhhh TERM=alacritty makes ssh weird
+alias ssh="TERM=xterm-256color ssh"
+
+cpp_eval() {
+  src=$(mktemp /tmp/cpptemp.XXXXXXXX.cpp)
+  out=$(mktemp)
+  tee $src >/dev/null
+  g++ $src -o $out
+  $out
+}
 
 adb() {
   # try to connect if no device connected
-  [ $(command adb devices | wc -l) -gt 2 ] || command adb connect 192.168.2.118:5555
+  [ $(command adb devices | wc -l) -gt 2 ] || command adb connect $ANDROID_IP
   command adb "$@"
 }
 

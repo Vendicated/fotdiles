@@ -2,7 +2,6 @@ let g:ale_disable_lsp = 1
 
 call plug#begin()
 Plug 'joshdick/onedark.vim'   " OneDarkPro Theme
-Plug 'dylanaraps/wal.vim'     " Theme based on pywal scheme
 Plug 'ryanoasis/vim-devicons'     " File Icons
 Plug 'vim-airline/vim-airline'    " Status Bar
 Plug 'vim-airline/vim-airline-themes'
@@ -36,9 +35,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex'
 
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'rust-lang/rust.vim'
-
 call plug#end()
 
 if (empty($TMUX))
@@ -52,10 +48,11 @@ endif
 
 set splitbelow splitright
 set tabstop=4 softtabstop=2 expandtab shiftwidth=2 smarttab
-set number wrap relativenumber
-set signcolumn="yes"
+set number wrap
+set signcolumn=yes
 set mouse=a " Yes, really.
 set noshowmode
+set clipboard=unnamedplus
 
 filetype plugin on
 syntax enable
@@ -133,12 +130,6 @@ nmap <silent> gr <Plug>(coc-references)
 " Open new files
 noremap <C-n> :execute("FZF")<CR>
 
-" Sorry bro
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -159,37 +150,3 @@ let g:NERDToggleCheckAllLines = 1
 nmap <leader>c <Plug>NERDCommenterToggle
 vmap <leader>c <Plug>NERDCommenterToggle<CR>gv
 
-" https://stackoverflow.com/a/2585673
-function! CopyToClipBoard() range 
-  echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\n")).' | xclip -selection clipboard')
-endfunction
-
-noremap <silent> <C-c> :call CopyToClipBoard()<CR> 
-noremap <silent> <C-v> :r !xclip -o -selection clipboard<CR>
-
-" Omnisharp
-
-" OmniSharp: {{{
-let g:OmniSharp_popup_position = 'peek'
-if has('nvim')
-  let g:OmniSharp_popup_options = {
-  \ 'winhl': 'Normal:NormalFloat'
-  \}
-else
-  let g:OmniSharp_popup_options = {
-  \ 'highlight': 'Normal',
-  \ 'padding': [0, 0, 0, 0],
-  \ 'border': [1]
-  \}
-endif
-let g:OmniSharp_popup_mappings = {
-\ 'sigNext': '<C-n>',
-\ 'sigPrev': '<C-p>',
-\ 'pageDown': ['<C-f>', '<PageDown>'],
-\ 'pageUp': ['<C-b>', '<PageUp>']
-\}
-
-let g:OmniSharp_highlight_groups = {
-\ 'ExcludedCode': 'NonText'
-\}
-" }}}
